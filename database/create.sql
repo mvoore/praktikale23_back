@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2023-05-16 13:19:15.821
+-- Last modification date: 2023-05-17 07:30:01.486
 
 -- tables
 -- Table: address
@@ -18,9 +18,8 @@ CREATE TABLE address (
 -- Table: application
 CREATE TABLE application (
                              id serial  NOT NULL,
+                             status char(1)  NOT NULL,
                              email varchar(255)  NOT NULL,
-                             cv bytea  NOT NULL,
-                             cover_letter bytea  NOT NULL,
                              user_id int  NOT NULL,
                              internship_id int  NOT NULL,
                              CONSTRAINT application_pk PRIMARY KEY (id)
@@ -50,6 +49,20 @@ CREATE TABLE company (
                          CONSTRAINT company_pk PRIMARY KEY (id)
 );
 
+-- Table: cover_letter
+CREATE TABLE cover_letter (
+                              id serial  NOT NULL,
+                              title varchar(255)  NOT NULL,
+                              CONSTRAINT cover_letter_pk PRIMARY KEY (id)
+);
+
+-- Table: cv
+CREATE TABLE cv (
+                    id serial  NOT NULL,
+                    title varchar(255)  NOT NULL,
+                    CONSTRAINT cv_pk PRIMARY KEY (id)
+);
+
 -- Table: image
 CREATE TABLE image (
                        id serial  NOT NULL,
@@ -60,6 +73,7 @@ CREATE TABLE image (
 -- Table: internship
 CREATE TABLE internship (
                             id serial  NOT NULL,
+                            status char(1)  NOT NULL,
                             category_id int  NOT NULL,
                             title varchar(255)  NOT NULL,
                             company_id int  NOT NULL,
@@ -93,11 +107,13 @@ CREATE TABLE role (
 -- Table: user
 CREATE TABLE "user" (
                         id serial  NOT NULL,
+                        status char(1)  NOT NULL,
                         username varchar(255)  NOT NULL,
                         password varchar(255)  NOT NULL,
-                        status char(1)  NOT NULL,
                         company_id int  NULL,
                         role_id int  NOT NULL,
+                        cv_id int  NOT NULL,
+                        cover_letter_id int  NOT NULL,
                         CONSTRAINT user_pk PRIMARY KEY (id)
 );
 
@@ -186,6 +202,22 @@ ALTER TABLE internship ADD CONSTRAINT internship_category
 ALTER TABLE "user" ADD CONSTRAINT user_company
     FOREIGN KEY (company_id)
         REFERENCES company (id)
+        NOT DEFERRABLE
+            INITIALLY IMMEDIATE
+;
+
+-- Reference: user_cover_letter (table: user)
+ALTER TABLE "user" ADD CONSTRAINT user_cover_letter
+    FOREIGN KEY (cover_letter_id)
+        REFERENCES cover_letter (id)
+        NOT DEFERRABLE
+            INITIALLY IMMEDIATE
+;
+
+-- Reference: user_cv (table: user)
+ALTER TABLE "user" ADD CONSTRAINT user_cv
+    FOREIGN KEY (cv_id)
+        REFERENCES cv (id)
         NOT DEFERRABLE
             INITIALLY IMMEDIATE
 ;
