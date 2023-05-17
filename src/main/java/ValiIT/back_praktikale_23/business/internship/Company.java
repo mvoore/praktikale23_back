@@ -1,7 +1,7 @@
 package ValiIT.back_praktikale_23.business.internship;
 
 import ValiIT.back_praktikale_23.business.address.Address;
-import ValiIT.back_praktikale_23.business.user.User;
+import ValiIT.back_praktikale_23.domain.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

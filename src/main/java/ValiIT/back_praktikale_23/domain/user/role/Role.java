@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.business.user;
+package ValiIT.back_praktikale_23.domain.user.role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

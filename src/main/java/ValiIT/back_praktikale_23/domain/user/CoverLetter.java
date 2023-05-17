@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.business.user;
+package ValiIT.back_praktikale_23.domain.user;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -9,8 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "cv")
-public class Cv {
+@Table(name = "cover_letter")
+public class CoverLetter {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
