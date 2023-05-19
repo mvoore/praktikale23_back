@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.business.internship;
+package ValiIT.back_praktikale_23.domain.address;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,8 +12,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "city")
+public class City {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;

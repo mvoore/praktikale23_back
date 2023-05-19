@@ -1,8 +1,9 @@
 package ValiIT.back_praktikale_23.infrastructure;
 
-import ee.valiit.back_bank_27.infrastructure.error.ApiError;
-import ee.valiit.back_bank_27.infrastructure.exception.BusinessException;
-import ee.valiit.back_bank_27.infrastructure.exception.DataNotFoundException;
+
+import ValiIT.back_praktikale_23.infrastructure.error.ApiError;
+import ValiIT.back_praktikale_23.infrastructure.exception.BusinessException;
+import ValiIT.back_praktikale_23.infrastructure.exception.DataNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

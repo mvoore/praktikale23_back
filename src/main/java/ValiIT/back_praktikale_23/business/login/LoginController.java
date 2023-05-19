@@ -1,5 +1,6 @@
 package ValiIT.back_praktikale_23.business.login;
 
+import ValiIT.back_praktikale_23.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
