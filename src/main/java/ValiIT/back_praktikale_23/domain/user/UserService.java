@@ -15,7 +15,7 @@ public class UserService {
     public User findActiveUserBy(String username, String password) {
         Optional<User> userOptional = userRepository.findUserBy(username, password, ACTIVE.getLetter());
         if (userOptional.isEmpty()) {
-            throw new RuntimeException();
+            throw new RuntimeException("Ei Leidnud kasutajat");
         }
         User user = userOptional.get();
         return user;
