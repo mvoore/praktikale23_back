@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.domain.internship;
+package ValiIT.back_praktikale_23.domain.category;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

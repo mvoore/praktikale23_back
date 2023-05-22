@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2023-05-17 09:03:54.306
+-- Last modification date: 2023-05-22 17:27:34.156
 
 -- tables
 -- Table: address
@@ -82,6 +82,7 @@ CREATE TABLE internship (
                             title varchar(255)  NOT NULL,
                             description varchar(2000)  NOT NULL,
                             status char(1)  NOT NULL,
+                            date_added date  NOT NULL,
                             image_id int  NULL,
                             CONSTRAINT internship_pk PRIMARY KEY (id)
 );
