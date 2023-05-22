@@ -13,6 +13,7 @@ import lombok.Setter;
 @Table(name = "cover_letter")
 public class CoverLetter {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
