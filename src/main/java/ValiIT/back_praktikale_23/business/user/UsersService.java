@@ -45,4 +45,4 @@ public class UsersService {
 //  nii paljude andmetega kui saime ära mäppida - DONE
 //  Foreing keyde osas (roleId) peate tegema nii, et te leiate andmebaasist (roleService->roleRepositoryu)
 //  konkreetselt selle id objekti 'role' ja siis panete setteriga selle 'user' objetki külge.
-//  Siis kui 'user' objekti küljes kõik vajalikud andmed olemas, siis salvestame selle rea ära (userService->userRepository)
+//  Siis kui 'user' objekti küljes kõik vajalikud andmed olemas, siis salvestame selle rea ära (userService->userRepository) -DONE
