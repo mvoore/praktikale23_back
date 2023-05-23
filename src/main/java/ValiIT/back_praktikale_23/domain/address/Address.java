@@ -1,6 +1,7 @@
 package ValiIT.back_praktikale_23.domain.address;
 
-import ValiIT.back_praktikale_23.domain.region.Region;
+import ValiIT.back_praktikale_23.domain.address.city.City;
+import ValiIT.back_praktikale_23.domain.address.region.Region;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

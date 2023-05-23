@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.domain.category;
+package ValiIT.back_praktikale_23.domain.internship.category;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

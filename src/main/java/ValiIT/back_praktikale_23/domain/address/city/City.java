@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.domain.region;
+package ValiIT.back_praktikale_23.domain.address.city;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -9,8 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "region")
-public class Region {
+@Table(name = "city")
+public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

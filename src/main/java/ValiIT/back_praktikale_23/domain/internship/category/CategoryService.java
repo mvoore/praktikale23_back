@@ -1,6 +1,5 @@
-package ValiIT.back_praktikale_23.domain.category;
+package ValiIT.back_praktikale_23.domain.internship.category;
 
-import ValiIT.back_praktikale_23.domain.region.Region;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 

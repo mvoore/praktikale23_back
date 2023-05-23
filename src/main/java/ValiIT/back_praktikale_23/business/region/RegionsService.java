@@ -1,8 +1,8 @@
 package ValiIT.back_praktikale_23.business.region;
 
-import ValiIT.back_praktikale_23.domain.region.Region;
-import ValiIT.back_praktikale_23.domain.region.RegionMapper;
-import ValiIT.back_praktikale_23.domain.region.RegionService;
+import ValiIT.back_praktikale_23.domain.address.region.Region;
+import ValiIT.back_praktikale_23.domain.address.region.RegionMapper;
+import ValiIT.back_praktikale_23.domain.address.region.RegionService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 

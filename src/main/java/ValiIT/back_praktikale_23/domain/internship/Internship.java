@@ -1,11 +1,15 @@
 package ValiIT.back_praktikale_23.domain.internship;
 
-import ValiIT.back_praktikale_23.domain.category.Category;
+import ValiIT.back_praktikale_23.domain.internship.category.Category;
+import ValiIT.back_praktikale_23.domain.internship.company.Company;
+import ValiIT.back_praktikale_23.domain.internship.image.Image;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -45,5 +49,9 @@ public class Internship {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "image_id")
     private Image image;
+
+    @NotNull
+    @Column(name = "date_added", nullable = false)
+    private LocalDate dateAdded;
 
 }
