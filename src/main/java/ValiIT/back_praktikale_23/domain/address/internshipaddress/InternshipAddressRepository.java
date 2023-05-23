@@ -8,7 +8,7 @@ import java.util.List;
 public interface InternshipAddressRepository extends JpaRepository<InternshipAddress, Integer> {
     @Query("""
             select i from InternshipAddress i
-            where i.address.region.id = ?1 and i.internship.category.id = ?2 and i.internship.status = ?3""")
+            where (i.address.region.id = ?1 or ?1 = 0 ) and (i.internship.category.id = ?2 or ?2 = 0) and i.internship.status = ?3""")
     List<InternshipAddress> findInternshipAddressesBy(Integer regionId, Integer categoryId, String status);
 
 }
