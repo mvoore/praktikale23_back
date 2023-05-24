@@ -1,9 +1,11 @@
 package ValiIT.back_praktikale_23.domain.address.region;
 
 import ValiIT.back_praktikale_23.business.region.RegionDto;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.ReportingPolicy;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)

@@ -17,14 +17,11 @@ public interface InternshipAddressMapper {
     @Mapping(source = "internship.category.name", target = "categoryName")
     @Mapping(source = "address.region.name", target = "regionName")
     @Mapping(source = "internship.image", target = "imageData", qualifiedByName = "imageToImageData")
-    @Mapping(expression = "java(LocalDate.now())", target = "dateAdded")
+    @Mapping(source = "internship.dateAdded", target = "dateAdded")
     InternshipDto toDto(InternshipAddress internshipAddress);
 
    List <InternshipDto> toDtos(List <InternshipAddress> internshipAddresses);
 
-    public static void main(String[] args) {
-        LocalDate todayDate = LocalDate.now();
-    }
 
     @Named("imageToImageData")
     static String imageToImageData(Image image) {

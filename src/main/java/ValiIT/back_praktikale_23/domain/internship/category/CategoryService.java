@@ -4,6 +4,8 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CategoryService {
 
@@ -15,5 +17,11 @@ public class CategoryService {
         return categories;
 
 
+    }
+
+    public Category findCategoryBy(Integer categoryId) {
+        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
+        Category category = optionalCategory.get();
+        return category;
     }
 }

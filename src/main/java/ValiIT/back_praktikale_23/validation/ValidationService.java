@@ -6,8 +6,7 @@ import ValiIT.back_praktikale_23.infrastructure.exception.BusinessException;
 
 import java.util.Optional;
 
-import static ValiIT.back_praktikale_23.business.Error.INCORRECT_CREDENTIALS;
-import static ValiIT.back_praktikale_23.business.Error.USER_EXISTS;
+import static ValiIT.back_praktikale_23.business.Error.*;
 
 public class ValidationService {
 
