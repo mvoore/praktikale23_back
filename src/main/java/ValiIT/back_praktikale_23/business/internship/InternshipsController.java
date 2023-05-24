@@ -1,11 +1,8 @@
 package ValiIT.back_praktikale_23.business.internship;
 
-import ValiIT.back_praktikale_23.infrastructure.error.ApiError;
+import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
+import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,8 +30,8 @@ public class InternshipsController {
 
     @PostMapping("/new-offer")
     @Operation(summary = "Uue praktika pakkumise lisamine.")
-    public void addInternship(@RequestBody InternshipDto internshipDto){
-    internshipsService.addInternship(internshipDto);
+    public void addInternship(@RequestBody InternshipRequest internshipRequest){
+    internshipsService.addInternship(internshipRequest);
     }
 }
 

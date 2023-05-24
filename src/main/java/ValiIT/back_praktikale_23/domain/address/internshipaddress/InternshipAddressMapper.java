@@ -1,6 +1,6 @@
 package ValiIT.back_praktikale_23.domain.address.internshipaddress;
 
-import ValiIT.back_praktikale_23.business.internship.InternshipDto;
+import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.domain.internship.image.Image;
 import ValiIT.back_praktikale_23.util.ImageUtil;
 import org.mapstruct.*;

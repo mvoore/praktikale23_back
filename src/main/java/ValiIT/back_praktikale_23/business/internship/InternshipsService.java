@@ -1,5 +1,7 @@
 package ValiIT.back_praktikale_23.business.internship;
 
+import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
+import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddress;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressMapper;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressService;
@@ -8,8 +10,9 @@ import ValiIT.back_praktikale_23.domain.internship.InternshipMapper;
 import ValiIT.back_praktikale_23.domain.internship.InternshipService;
 import ValiIT.back_praktikale_23.domain.internship.category.Category;
 import ValiIT.back_praktikale_23.domain.internship.category.CategoryService;
+import ValiIT.back_praktikale_23.domain.internship.image.Image;
+import ValiIT.back_praktikale_23.util.ImageUtil;
 import jakarta.annotation.Resource;
-import org.mapstruct.Mapping;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,16 +44,21 @@ public class InternshipsService {
     }
 
     @Transactional
-    public void addInternship(InternshipDto internshipDto) {
-//        Internship internship = internshipMapper.toEntity(internshipDto);
-//        Integer categoryId = internshipDto.getCategoryId();
-//        Category category = categoryService.findCategoryBy(categoryId);
-//        internship.setCategory(category);
+    public void addInternship(InternshipRequest internshipRequest) {
+        Internship internship = internshipMapper.toEntity(internshipRequest);
+        Integer categoryId = internshipRequest.getCategoryId();
+        Category category = categoryService.findCategoryBy(categoryId);
+        internship.setCategory(category);
 
+        Image image = new Image();
+        String imageData = internshipRequest.getImageData();
+        byte[] data = ImageUtil.base64ImageDataToByteArray(imageData);
+        image.setData(data);
 
+//
 //        @Mapping(source = "", target = "image")
-
-
+//
+//
 //        @Mapping(source = "", target = "company")
 
 
