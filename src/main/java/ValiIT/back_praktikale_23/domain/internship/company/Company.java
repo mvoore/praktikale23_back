@@ -38,9 +38,4 @@ public class Company {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "address_id", nullable = false)
-    private Address address;
-
 }

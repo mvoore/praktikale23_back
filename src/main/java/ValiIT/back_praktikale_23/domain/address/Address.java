@@ -2,6 +2,7 @@ package ValiIT.back_praktikale_23.domain.address;
 
 import ValiIT.back_praktikale_23.domain.address.city.City;
 import ValiIT.back_praktikale_23.domain.address.region.Region;
+import ValiIT.back_praktikale_23.domain.internship.company.Company;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -30,6 +31,16 @@ public class Address {
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "company_id", nullable = false)
+    private Company company;
+
+    @Size(max = 255)
+    @NotNull
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @Size(max = 255)
     @NotNull
     @Column(name = "street", nullable = false)
@@ -43,10 +54,13 @@ public class Address {
     @Column(name = "postal_code", nullable = false)
     private Integer postalCode;
 
-    @Column(name = "longitude", precision = 2, scale = 6)
+    @Column(name = "longitude", precision = 6, scale = 4)
     private BigDecimal longitude;
 
-    @Column(name = "latitude", precision = 2, scale = 6)
+    @Column(name = "latitude", precision = 6, scale = 4)
     private BigDecimal latitude;
+
+
+
 
 }

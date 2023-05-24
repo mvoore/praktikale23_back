@@ -8,6 +8,6 @@ import lombok.Data;
  */
 @Data
 public class CategoryDto {
-    private final Integer categoryId;
-    private final String categoryName;
+    private  Integer categoryId;
+    private  String categoryName;
 }

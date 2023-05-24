@@ -17,7 +17,8 @@ public class InternshipsController {
 
 
     @GetMapping("/internships")
-    @Operation(summary = "Leiab süsteemist (andmebaasist internships tabelist) kõik praktika pakkumised")
+    @Operation(summary = "Leiab süsteemist (andmebaasist internships tabelist) kõik praktika pakkumised",
+    description = "Kui regionId on 0 ja/või categoryId on 0, siis tagastatakse kõik pakkumised ")
     public List<InternshipDto> getInternships(@RequestParam Integer regionId, @RequestParam Integer categoryId){
         List<InternshipDto>internships = internshipsService.getInternships(regionId,categoryId);
         return internships;

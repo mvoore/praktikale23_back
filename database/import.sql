@@ -18,20 +18,21 @@ INSERT INTO public.region (id, name) VALUES (DEFAULT, 'Saaremaa');
 INSERT INTO public.region (id, name) VALUES (DEFAULT, 'Viljandimaa');
 INSERT INTO public.region (id, name) VALUES (DEFAULT, 'Pärnumaa');
 
-INSERT INTO public.address (id,region_id,city_id,street,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,1,2,'Aia Tallinn',7,123456,null,null);
-INSERT INTO public.address (id,region_id,city_id,street,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,2,1,'Aia Kuressaare',7,123456,null,null);
-INSERT INTO public.address (id,region_id,city_id,street,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,3,4,'Aia Viljandi',7,123456,null,null);
-INSERT INTO public.address (id,region_id,city_id,street,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,4,5,'Aia Pärnu',7,123456,null,null);
-
 INSERT INTO public.user (id, status,username,password,role_id) VALUES (DEFAULT,'A','admin','123',1);
 INSERT INTO public.user (id, status,username,password,role_id) VALUES (DEFAULT,'A','customer','123',2);
 INSERT INTO public.user (id, status,username,password,role_id) VALUES (DEFAULT,'A','intern','123',3);
 INSERT INTO public.user (id, status,username,password,role_id) VALUES (DEFAULT,'D','customer2','123',2);
 
-INSERT INTO public.company (id,user_id,name,phone_number,email,address_id) VALUES (DEFAULT,2,'BSC Koolitus Tallinn ',555666777,'bcs@valiit.ee',1);
-INSERT INTO public.company (id,user_id,name,phone_number,email,address_id) VALUES (DEFAULT,2,'BSC Koolitus Kuressaare',555666777,'bcs@valiit.ee',2);
-INSERT INTO public.company (id,user_id,name,phone_number,email,address_id) VALUES (DEFAULT,2,'BSC Koolitus Viljandi',555666777,'bcs@valiit.ee',3);
-INSERT INTO public.company (id,user_id,name,phone_number,email,address_id) VALUES (DEFAULT,2,'BSC Koolitus Pärnu',555666777,'bcs@valiit.ee',4);
+INSERT INTO public.company (id,user_id,name,phone_number,email) VALUES (DEFAULT,2,'BSC Koolitus Tallinn ',555666777,'bcs@valiit.ee');
+INSERT INTO public.company (id,user_id,name,phone_number,email) VALUES (DEFAULT,2,'BSC Koolitus Kuressaare',555666777,'bcs@valiit.ee');
+INSERT INTO public.company (id,user_id,name,phone_number,email) VALUES (DEFAULT,2,'BSC Koolitus Viljandi',555666777,'bcs@valiit.ee');
+INSERT INTO public.company (id,user_id,name,phone_number,email) VALUES (DEFAULT,2,'BSC Koolitus Pärnu',555666777,'bcs@valiit.ee');
+
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,1,2,1,'Aia Tallinn','name1',7,123456,null,null);
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,2,1,1,'Aia Kuressaare','name2',7,123456,null,null);
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,3,4,1,'Aia Viljandi','name3',7,123456,null,null);
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,4,5,1,'Aia Pärnu','name4',7,123456,null,null);
+
 
 INSERT INTO public.cover_letter (id, title,file,user_id) VALUES (DEFAULT, 'minu kaaskiri','see on fail',3);
 
