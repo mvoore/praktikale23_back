@@ -5,9 +5,10 @@ import ValiIT.back_praktikale_23.domain.internship.image.Image;
 import ValiIT.back_praktikale_23.util.ImageUtil;
 import org.mapstruct.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING,imports = {LocalDate.class})
 public interface InternshipAddressMapper {
 
     @Mapping(source = "id", target = "internshipId")
@@ -16,10 +17,14 @@ public interface InternshipAddressMapper {
     @Mapping(source = "internship.category.name", target = "categoryName")
     @Mapping(source = "address.region.name", target = "regionName")
     @Mapping(source = "internship.image", target = "imageData", qualifiedByName = "imageToImageData")
-    @Mapping(source = "internship.dateAdded", target = "dateAdded")
+    @Mapping(expression = "java(LocalDate.now())", target = "dateAdded")
     InternshipDto toDto(InternshipAddress internshipAddress);
 
    List <InternshipDto> toDtos(List <InternshipAddress> internshipAddresses);
+
+    public static void main(String[] args) {
+        LocalDate todayDate = LocalDate.now();
+    }
 
     @Named("imageToImageData")
     static String imageToImageData(Image image) {

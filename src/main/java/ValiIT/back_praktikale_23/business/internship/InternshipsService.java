@@ -18,8 +18,8 @@ public class InternshipsService {
     private InternshipAddressMapper internshipAddressMapper;
 
 
-    public List<InternshipDto> getInternships(Integer regionId, Integer categoryId) {
-        List<InternshipAddress> activeInternshipAddresses = internshipAddressService.getActiveInternshipsBy(regionId, categoryId);
+    public List<InternshipDto> getInternships(Integer sortValue, Integer regionId, Integer categoryId) {
+        List<InternshipAddress> activeInternshipAddresses = internshipAddressService.getActiveInternshipsBy(sortValue, regionId, categoryId);
         List<InternshipDto> dtos = internshipAddressMapper.toDtos(activeInternshipAddresses);
         return dtos;
     }

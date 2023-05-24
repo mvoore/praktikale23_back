@@ -3,6 +3,7 @@ package ValiIT.back_praktikale_23.domain.address.region;
 import ValiIT.back_praktikale_23.business.region.RegionDto;
 import org.mapstruct.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
@@ -17,5 +18,7 @@ public interface RegionMapper {
 
 
     List<RegionDto> toDtos(List<Region> regions);
+
+
 
 }
