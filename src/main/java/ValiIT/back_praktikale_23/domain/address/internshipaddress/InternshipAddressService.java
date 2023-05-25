@@ -25,4 +25,9 @@ public class InternshipAddressService {
                 ? Sort.by(Sort.Direction.DESC, "internship.dateAdded")
                 : Sort.by(Sort.Direction.ASC, "internship.dateAdded");
     }
+
+
+    public void addInternshipAddress(InternshipAddress internshipAddress) {
+        internshipAddressRepository.save(internshipAddress);
+    }
 }

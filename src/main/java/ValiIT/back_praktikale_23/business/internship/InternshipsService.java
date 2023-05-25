@@ -2,6 +2,9 @@ package ValiIT.back_praktikale_23.business.internship;
 
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
+import ValiIT.back_praktikale_23.domain.address.Address;
+import ValiIT.back_praktikale_23.domain.address.AddressMapper;
+import ValiIT.back_praktikale_23.domain.address.AddressService;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddress;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressMapper;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressService;
@@ -45,6 +48,11 @@ public class InternshipsService {
     @Resource
     private InternshipMapper internshipMapper;
 
+    @Resource
+    private AddressService addressService;
+
+
+
     public List<InternshipDto> getInternships(Integer sortValue, Integer regionId, Integer categoryId) {
         List<InternshipAddress> activeInternshipAddresses = internshipAddressService.getActiveInternshipsBy(sortValue, regionId, categoryId);
         List<InternshipDto> dtos = internshipAddressMapper.toDtos(activeInternshipAddresses);
@@ -58,10 +66,18 @@ public class InternshipsService {
         setImage(internship, request.getImageData());
         setCompany(internship, request.getUserId());
         internshipService.addInternship(internship);
+        addInternshipAddress(internship, request.getAddressId());
+    }
+
+    private void addInternshipAddress(Internship internship, Integer addressId) {
         //TODO address id abil leida üles address objekt/rida
         //TODO luua uus objekt internshipAddress, panna sinna külge objektid address ja internship
         //TODO salvesta internshipAddress admebaasi
-
+        Address address = addressService.findAddressBy(addressId);
+        InternshipAddress internshipAddress = new InternshipAddress();
+        internshipAddress.setAddress(address);
+        internshipAddress.setInternship(internship);
+        internshipAddressService.addInternshipAddress(internshipAddress);
     }
 
     private void setCategory(Internship internship, Integer categoryId) {
