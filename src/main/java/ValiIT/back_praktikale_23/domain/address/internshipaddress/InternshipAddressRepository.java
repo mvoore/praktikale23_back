@@ -12,4 +12,5 @@ public interface InternshipAddressRepository extends JpaRepository<InternshipAdd
             where (i.address.region.id = ?1 or ?1 = 0 ) and (i.internship.category.id = ?2 or ?2 = 0) and i.internship.status = ?3""")
     List<InternshipAddress> findInternshipAddressesBy(Integer regionId, Integer categoryId, String status, Sort sort);
 
+
 }

@@ -10,7 +10,7 @@ CREATE TABLE address (
                          company_id int  NOT NULL,
                          name varchar(255)  NOT NULL ,
                          street varchar(255)  NOT NULL ,
-                         street_number int  NOT NULL ,
+                         street_number int NULL ,
                          postal_code int  NOT NULL ,
                          longitude decimal(6,4)  NULL ,
                          latitude decimal(6,4)  NULL ,

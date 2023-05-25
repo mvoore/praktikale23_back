@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * A DTO for the {@link Internship} entity
@@ -16,6 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class InternshipRequest implements Serializable {
     private Integer userId;
+    private Integer addressId;
     private String title;
     private Integer categoryId;
     private String description;

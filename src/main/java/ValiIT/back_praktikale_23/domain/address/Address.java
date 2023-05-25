@@ -46,8 +46,7 @@ public class Address {
     @Column(name = "street", nullable = false)
     private String street;
 
-    @NotNull
-    @Column(name = "street_number", nullable = false)
+    @Column(name = "street_number")
     private Integer streetNumber;
 
     @NotNull
@@ -59,8 +58,5 @@ public class Address {
 
     @Column(name = "latitude", precision = 6, scale = 4)
     private BigDecimal latitude;
-
-
-
 
 }
