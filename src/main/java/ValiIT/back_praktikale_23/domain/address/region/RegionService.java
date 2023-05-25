@@ -4,6 +4,8 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class RegionService {
 
@@ -14,5 +16,11 @@ public class RegionService {
         List<Region> regions = regionRepository.findAll();
         return regions;
 
+    }
+
+    public Region findRegionBy(Integer regionId) {
+        Optional<Region> optionalRegion = regionRepository.findById(regionId);
+        Region region = optionalRegion.get();
+        return region;
     }
 }

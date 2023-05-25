@@ -10,7 +10,7 @@ public interface AddressMapper {
 //    @Mapping(source = "companyId", target = "company.id")
 //    @Mapping(source = "regionId", target = "region.id")
 //    @Mapping(source = "cityId", target = "city.id")
-    Address toEntity(AddressRequest addressRequest);
+    Address toAddress (AddressRequest addressRequest);
 
 
 

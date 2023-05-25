@@ -16,4 +16,10 @@ public class AddressService {
         Address address = optionalAddress.get();
         return address;
     }
+
+
+    public void addAddress(Address address) {
+        addressRepository.save(address);
+
+    }
 }
