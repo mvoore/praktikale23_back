@@ -19,6 +19,7 @@ public class InternshipService {
     }
 
 
-
-
+    public void addInternship(Internship internship) {
+        internshipRepository.save(internship);
+    }
 }
