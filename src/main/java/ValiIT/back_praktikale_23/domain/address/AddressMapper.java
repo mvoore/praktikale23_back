@@ -5,13 +5,10 @@ import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface AddressMapper {
-//    @Mapping(source = "companyId", target = "company")
-//    @Mapping(source = "regionId", target = "region")
-//    @Mapping(source = "cityId", target = "city")
+
 
     @Mapping(source = "addressName", target = "name")
-    @Mapping(source = "streetNumber", target = "streetNumber")
-    Address toEntity(AddressRequest addressRequest);
+    Address toAddress(AddressRequest addressRequest);
 
 
 

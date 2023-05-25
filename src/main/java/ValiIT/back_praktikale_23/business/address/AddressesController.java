@@ -12,7 +12,7 @@ public class AddressesController {
     @Resource
     private AddressesService addressesService;
 
-    @PostMapping
+    @PostMapping()
     public void addNewAddress(@RequestBody AddressRequest addressRequest) {
         addressesService.addNewAddress(addressRequest);
     }
