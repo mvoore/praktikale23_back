@@ -58,6 +58,10 @@ public class InternshipsService {
         setImage(internship, request.getImageData());
         setCompany(internship, request.getUserId());
         internshipService.addInternship(internship);
+        //TODO address id abil leida üles address objekt/rida
+        //TODO luua uus objekt internshipAddress, panna sinna külge objektid address ja internship
+        //TODO salvesta internshipAddress admebaasi
+
     }
 
     private void setCategory(Internship internship, Integer categoryId) {
