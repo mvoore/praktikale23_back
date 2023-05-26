@@ -8,6 +8,7 @@ import java.util.List;
 
 @Service
 public class InternshipAddressService {
+
     @Resource
     private InternshipAddressRepository internshipAddressRepository;
 

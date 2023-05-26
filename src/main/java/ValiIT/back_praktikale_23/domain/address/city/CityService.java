@@ -8,6 +8,7 @@ import java.util.Optional;
 
 @Service
 public class CityService {
+
     @Resource
     private CityRepository cityRepository;
 
@@ -17,9 +18,9 @@ public class CityService {
         return city;
 
     }
+
     public List<City> getCities() {
         List<City> cities = cityRepository.findAll();
         return cities;
-
     }
 }

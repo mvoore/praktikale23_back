@@ -29,7 +29,6 @@ public class AddressesService {
     @Resource
     private CityService cityService;
 
-
     public void addNewAddress(AddressRequest addressRequest) {
         Address address = addressMapper.toAddress(addressRequest);
         Company company = companyService.findCompanyBy(addressRequest.getUserId());
@@ -38,7 +37,6 @@ public class AddressesService {
         address.setRegion(region);
         City city = cityService.findCityBy(addressRequest.getCityId());
         address.setCity(city);
-
         addressService.addAddress(address);
     }
 

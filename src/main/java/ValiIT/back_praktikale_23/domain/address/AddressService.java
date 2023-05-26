@@ -11,13 +11,11 @@ public class AddressService {
     @Resource
     private AddressRepository addressRepository;
 
-
     public Address findAddressBy(Integer addressId) {
         Optional<Address> optionalAddress = addressRepository.findById(addressId);
         Address address = optionalAddress.get();
         return address;
     }
-
 
     public void addAddress(Address address) {
         addressRepository.save(address);
