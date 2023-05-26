@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.domain.address.address;
+package ValiIT.back_praktikale_23.domain.address;
 
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -8,10 +8,8 @@ import java.util.Optional;
 
 @Service
 public class AddressService {
-
     @Resource
     private AddressRepository addressRepository;
-
 
 
     public Address findAddressBy(Integer addressId) {
@@ -20,12 +18,14 @@ public class AddressService {
         return address;
     }
 
+
     public void addAddress(Address address) {
         addressRepository.save(address);
+
     }
 
-    public List<Address> getAddresses() {
-        List<Address> addresses = addressRepository.findAll();
+    public List<Address> getCompanyAddressBy(Integer companyId) {
+        List<Address> addresses = addressRepository.findAddressesBy(companyId);
         return addresses;
     }
 }

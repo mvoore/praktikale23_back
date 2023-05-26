@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.domain.address.address.city;
+package ValiIT.back_praktikale_23.domain.address.city;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

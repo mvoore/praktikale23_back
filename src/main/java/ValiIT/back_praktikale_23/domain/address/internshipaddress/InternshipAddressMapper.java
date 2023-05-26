@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.domain.address.address.internshipaddress;
+package ValiIT.back_praktikale_23.domain.address.internshipaddress;
 
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.domain.internship.image.Image;

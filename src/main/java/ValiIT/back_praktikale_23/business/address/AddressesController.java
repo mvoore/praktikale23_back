@@ -14,15 +14,15 @@ public class AddressesController {
     @Resource
     private AddressesService addressesService;
     @PostMapping
+    @Operation(summary = "Lisab andmebaasi uue aadressi")
     public void addNewAddress(@RequestBody AddressRequest addressRequest) {
         addressesService.addNewAddress(addressRequest);
     }
 
-    @GetMapping()
-    @Operation(summary = "Leiab süsteemist addressName(andmebaasist address tabelist) aadressi", description = "kui addressId=0 leiab kõik aadressid")
-
-    public List<AddressDto> getAddresses(){
-        List<AddressDto> addresses=addressesService.getAddresses();
+    @GetMapping
+    @Operation(summary = "Leiab andmebaasist firmaga seotud aadressid")
+    public List<AddressDto> findCompanyAddresses(@RequestParam Integer companyId) {
+        List<AddressDto> addresses = addressesService.getCompanyAddress(companyId);
         return addresses;
     }
 }

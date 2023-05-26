@@ -2,13 +2,13 @@ package ValiIT.back_praktikale_23.business.address;
 
 import ValiIT.back_praktikale_23.business.address.dto.AddressDto;
 import ValiIT.back_praktikale_23.business.address.dto.AddressRequest;
-import ValiIT.back_praktikale_23.domain.address.address.Address;
-import ValiIT.back_praktikale_23.domain.address.address.AddressMapper;
-import ValiIT.back_praktikale_23.domain.address.address.AddressService;
-import ValiIT.back_praktikale_23.domain.address.address.city.City;
-import ValiIT.back_praktikale_23.domain.address.address.city.CityService;
-import ValiIT.back_praktikale_23.domain.address.address.region.Region;
-import ValiIT.back_praktikale_23.domain.address.address.region.RegionService;
+import ValiIT.back_praktikale_23.domain.address.Address;
+import ValiIT.back_praktikale_23.domain.address.AddressMapper;
+import ValiIT.back_praktikale_23.domain.address.AddressService;
+import ValiIT.back_praktikale_23.domain.address.city.City;
+import ValiIT.back_praktikale_23.domain.address.city.CityService;
+import ValiIT.back_praktikale_23.domain.address.region.Region;
+import ValiIT.back_praktikale_23.domain.address.region.RegionService;
 import ValiIT.back_praktikale_23.domain.internship.company.Company;
 import ValiIT.back_praktikale_23.domain.internship.company.CompanyService;
 import jakarta.annotation.Resource;
@@ -42,7 +42,7 @@ public class AddressesService {
 
     public void addNewAddress(AddressRequest addressRequest) {
         Address address = addressMapper.toAddress(addressRequest);
-        Company company = companyService.findCompanyBy(addressRequest.getCompanyId());
+        Company company = companyService.findCompanyBy(addressRequest.getUserId());
         address.setCompany(company);
         Region region = regionService.findRegionBy(addressRequest.getRegionId());
         address.setRegion(region);
@@ -52,13 +52,10 @@ public class AddressesService {
 
     }
 
-
-    public List<AddressDto> getAddresses() {
-        List<Address> addresses = addressService.getAddresses();
-        List<AddressDto> dtos = addressMapper.toDtos(addresses);
-        return dtos;
-
-
+    public List<AddressDto> getCompanyAddress(Integer companyId) {
+        List<Address> addresses = addressService.getCompanyAddressBy(companyId);
+        List<AddressDto> addressesDto = addressMapper.toAddressesDto(addresses);
+        return addressesDto;
     }
 }
 

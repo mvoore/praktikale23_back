@@ -1,6 +1,5 @@
-package ValiIT.back_praktikale_23.domain.address.address.city;
+package ValiIT.back_praktikale_23.domain.address.city;
 
-import ValiIT.back_praktikale_23.domain.address.address.region.Region;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 

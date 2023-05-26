@@ -1,6 +1,6 @@
 package ValiIT.back_praktikale_23.business.address.dto;
 
-import ValiIT.back_praktikale_23.domain.address.address.Address;
+import ValiIT.back_praktikale_23.domain.address.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 public class AddressRequest implements Serializable {
     private Integer regionId;
     private Integer cityId;
-    private Integer companyId;
+    private Integer userId;
     private String addressName;
     private String street;
     private Integer streetNumber;

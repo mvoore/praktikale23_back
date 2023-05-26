@@ -2,11 +2,11 @@ package ValiIT.back_praktikale_23.business.internship;
 
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
-import ValiIT.back_praktikale_23.domain.address.address.Address;
-import ValiIT.back_praktikale_23.domain.address.address.AddressService;
-import ValiIT.back_praktikale_23.domain.address.address.internshipaddress.InternshipAddress;
-import ValiIT.back_praktikale_23.domain.address.address.internshipaddress.InternshipAddressMapper;
-import ValiIT.back_praktikale_23.domain.address.address.internshipaddress.InternshipAddressService;
+import ValiIT.back_praktikale_23.domain.address.Address;
+import ValiIT.back_praktikale_23.domain.address.AddressService;
+import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddress;
+import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressMapper;
+import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressService;
 import ValiIT.back_praktikale_23.domain.internship.Internship;
 import ValiIT.back_praktikale_23.domain.internship.InternshipMapper;
 import ValiIT.back_praktikale_23.domain.internship.InternshipService;

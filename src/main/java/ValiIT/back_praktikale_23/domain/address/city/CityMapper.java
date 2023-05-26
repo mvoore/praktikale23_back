@@ -1,8 +1,6 @@
-package ValiIT.back_praktikale_23.domain.address.address.city;
+package ValiIT.back_praktikale_23.domain.address.city;
 
 import ValiIT.back_praktikale_23.business.address.city.CityDto;
-import ValiIT.back_praktikale_23.business.region.RegionDto;
-import ValiIT.back_praktikale_23.domain.address.address.region.Region;
 import org.mapstruct.*;
 
 import java.util.List;
