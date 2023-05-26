@@ -33,4 +33,18 @@ public class Application {
     @Column(name = "status", nullable = false, length = 1)
     private String status;
 
+    @Size(max = 255)
+    @NotNull
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Size(max = 255)
+    @NotNull
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
+
+    @Size(max = 255)
+    @Column(name = "message")
+    private String message;
+
 }

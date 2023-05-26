@@ -47,4 +47,4 @@ INSERT INTO public.internship_address (id,address_id,internship_id) VALUES (DEFA
 INSERT INTO public.internship_address (id,address_id,internship_id) VALUES (DEFAULT,4,4);
 
 
-INSERT INTO public.application (id,internship_id,user_id,status) VALUES (DEFAULT,1,1,'A');
+INSERT INTO public.application (id,internship_id,user_id,status, email, full_name, message) VALUES (DEFAULT,1,1,'A','some@gmail.com','some one','Palun võtke tööle. Rahan on vaja. Hirmsasti!');
