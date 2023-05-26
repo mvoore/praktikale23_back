@@ -13,9 +13,6 @@ public class InternshipAddressService {
 
     public List<InternshipAddress> getActiveInternshipsBy(Integer sortValue, Integer regionId, Integer categoryId) {
         Sort sort = getSortFromSortValue(sortValue);
-
-
-
         List<InternshipAddress> internshipAddresses = internshipAddressRepository.findInternshipAddressesBy(regionId, categoryId, "A", sort);
         return internshipAddresses;
     }

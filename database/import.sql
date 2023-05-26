@@ -26,10 +26,10 @@ INSERT INTO public.user (id, status,username,password,role_id) VALUES (DEFAULT,'
 INSERT INTO public.company (id,user_id,name,phone_number,email) VALUES (DEFAULT,2,'BSC Koolitus Tallinn ',555666777,'bcs@valiit.ee');
 INSERT INTO public.company (id,user_id,name,phone_number,email) VALUES (DEFAULT,4,'BSC Koolitus Kuressaare',555666777,'bcs@valiit.ee');
 
-INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,1,2,1,'Aia Tallinn','name1',7,123456,null,null);
-INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,2,1,1,'Aia Kuressaare','name2',7,123456,null,null);
-INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,3,4,1,'Aia Viljandi','name3',7,123456,null,null);
-INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,4,5,1,'Aia Pärnu','name4',7,123456,null,null);
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,1,2,1,'Aia Tallinn','Tallinn',7,123456,null,null);
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,2,1,1,'Aia Kuressaare','Kuressaare',7,123456,null,null);
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,3,4,2,'Aia Viljandi','Viljandi',7,123456,null,null);
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude) VALUES (DEFAULT,4,5,2,'Aia Pärnu','Pärnu',7,123456,null,null);
 
 
 INSERT INTO public.cover_letter (id, title,file,user_id) VALUES (DEFAULT, 'minu kaaskiri','see on fail',3);

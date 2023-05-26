@@ -1,5 +1,7 @@
 package ValiIT.back_praktikale_23.business.address;
 
+import ValiIT.back_praktikale_23.business.address.dto.AddressDto;
+import ValiIT.back_praktikale_23.business.address.dto.AddressRequest;
 import ValiIT.back_praktikale_23.domain.address.Address;
 import ValiIT.back_praktikale_23.domain.address.AddressMapper;
 import ValiIT.back_praktikale_23.domain.address.AddressService;
@@ -11,6 +13,8 @@ import ValiIT.back_praktikale_23.domain.internship.company.Company;
 import ValiIT.back_praktikale_23.domain.internship.company.CompanyService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AddressesService {
@@ -36,5 +40,11 @@ public class AddressesService {
         address.setCity(city);
 
         addressService.addAddress(address);
+    }
+
+    public List<AddressDto> getCompanyAddress(Integer companyId) {
+        List<Address> addresses = addressService.getCompanyAddressBy(companyId);
+        List<AddressDto> addressesDto = addressMapper.toAddressesDto(addresses);
+        return addressesDto;
     }
 }
