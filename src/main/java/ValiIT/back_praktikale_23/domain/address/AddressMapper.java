@@ -14,6 +14,7 @@ public interface AddressMapper {
     @Mapping(source = "addressName", target = "name")
     Address toAddress(AddressRequest addressRequest);
 
+    @Mapping(source = "id", target = "addressId")
     @Mapping(source = "name", target = "addressName")
     AddressDto toAddressDto(Address address);
 

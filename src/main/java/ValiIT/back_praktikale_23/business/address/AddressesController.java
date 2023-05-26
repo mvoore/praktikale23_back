@@ -21,8 +21,8 @@ public class AddressesController {
 
     @GetMapping
     @Operation(summary = "Leiab andmebaasist firmaga seotud aadressid")
-    public List<AddressDto> findCompanyAddresses(@RequestParam Integer companyId) {
-        List<AddressDto> addresses = addressesService.getCompanyAddress(companyId);
+    public List<AddressDto> findCompanyAddresses(@RequestParam Integer userId) {
+        List<AddressDto> addresses = addressesService.getCompanyAddress(userId);
         return addresses;
 
     }

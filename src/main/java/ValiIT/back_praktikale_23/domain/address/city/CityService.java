@@ -3,6 +3,7 @@ package ValiIT.back_praktikale_23.domain.address.city;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,5 +15,11 @@ public class CityService {
         Optional<City> optionalCity = cityRepository.findById(cityId);
         City city = optionalCity.get();
         return city;
+
+    }
+    public List<City> getCities() {
+        List<City> cities = cityRepository.findAll();
+        return cities;
+
     }
 }

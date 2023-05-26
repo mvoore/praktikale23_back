@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 public class AddressRequest implements Serializable {
     private Integer regionId;
     private Integer cityId;
-    private Integer companyId;
+    private Integer userId;
     private String addressName;
     private String street;
     private Integer streetNumber;

@@ -24,8 +24,8 @@ public class AddressService {
 
     }
 
-    public List<Address> getCompanyAddressBy(Integer companyId) {
-        List<Address> addresses = addressRepository.findAddressesBy(companyId);
+    public List<Address> getCompanyAddressBy(Integer userId) {
+        List<Address> addresses = addressRepository.findAddressesBy(userId);
         return addresses;
     }
 }

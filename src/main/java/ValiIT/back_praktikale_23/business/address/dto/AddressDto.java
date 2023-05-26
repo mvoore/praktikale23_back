@@ -14,5 +14,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddressDto implements Serializable {
-    private String AddressName;
+    private Integer addressId;
+    private String addressName;
 }

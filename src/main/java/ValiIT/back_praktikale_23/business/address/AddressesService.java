@@ -32,7 +32,7 @@ public class AddressesService {
 
     public void addNewAddress(AddressRequest addressRequest) {
         Address address = addressMapper.toAddress(addressRequest);
-        Company company = companyService.findCompanyBy(addressRequest.getCompanyId());
+        Company company = companyService.findCompanyBy(addressRequest.getUserId());
         address.setCompany(company);
         Region region = regionService.findRegionBy(addressRequest.getRegionId());
         address.setRegion(region);
@@ -42,8 +42,8 @@ public class AddressesService {
         addressService.addAddress(address);
     }
 
-    public List<AddressDto> getCompanyAddress(Integer companyId) {
-        List<Address> addresses = addressService.getCompanyAddressBy(companyId);
+    public List<AddressDto> getCompanyAddress(Integer userId) {
+        List<Address> addresses = addressService.getCompanyAddressBy(userId);
         List<AddressDto> addressesDto = addressMapper.toAddressesDto(addresses);
         return addressesDto;
     }
