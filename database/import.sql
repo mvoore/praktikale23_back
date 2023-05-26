@@ -1,7 +1,7 @@
 INSERT INTO public.city (id, name) VALUES (DEFAULT, 'Kuressaare');
 INSERT INTO public.city (id, name) VALUES (DEFAULT, 'Tallinn');
 INSERT INTO public.city (id, name) VALUES (DEFAULT, 'Tartu');
-INSERT INTO public.city (id, name) VALUES (DEFAULT, 'Viljani');
+INSERT INTO public.city (id, name) VALUES (DEFAULT, 'Viljandi');
 INSERT INTO public.city (id, name) VALUES (DEFAULT, 'Pärnu');
 
 INSERT INTO public.category (id, name) VALUES (DEFAULT, 'Kokandus');

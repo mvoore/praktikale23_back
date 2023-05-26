@@ -1,4 +1,4 @@
-package ValiIT.back_praktikale_23.domain.address.internshipaddress;
+package ValiIT.back_praktikale_23.domain.address.address.internshipaddress;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;

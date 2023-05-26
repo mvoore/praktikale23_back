@@ -1,8 +1,9 @@
-package ValiIT.back_praktikale_23.domain.address;
+package ValiIT.back_praktikale_23.domain.address.address;
 
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,5 +22,10 @@ public class AddressService {
 
     public void addAddress(Address address) {
         addressRepository.save(address);
+    }
+
+    public List<Address> getAddresses() {
+        List<Address> addresses = addressRepository.findAll();
+        return addresses;
     }
 }

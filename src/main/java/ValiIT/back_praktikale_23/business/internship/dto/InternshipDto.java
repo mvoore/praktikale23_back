@@ -25,3 +25,5 @@ public class InternshipDto implements Serializable {
     private String imageData;
     private LocalDate dateAdded;
 }
+
+
