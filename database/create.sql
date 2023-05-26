@@ -14,6 +14,7 @@ CREATE TABLE address (
                          postal_code int  NOT NULL ,
                          longitude decimal(6,4)  NULL ,
                          latitude decimal(6,4)  NULL ,
+                         status varchar(1)  NOT NULL ,
                          CONSTRAINT address_pk PRIMARY KEY (id)
 );
 

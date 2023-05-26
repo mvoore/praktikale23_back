@@ -1,5 +1,6 @@
 package ValiIT.back_praktikale_23.domain.address;
 
+import ValiIT.back_praktikale_23.business.Status;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class AddressService {
     }
 
     public List<Address> getCompanyAddressBy(Integer userId) {
-        List<Address> addresses = addressRepository.findAddressesBy(userId);
+        List<Address> addresses = addressRepository.findAddressesBy(userId, Status.ACTIVE.getLetter());
         return addresses;
     }
 }

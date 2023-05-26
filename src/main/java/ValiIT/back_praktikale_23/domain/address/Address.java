@@ -59,4 +59,9 @@ public class Address {
     @Column(name = "latitude", precision = 6, scale = 4)
     private BigDecimal latitude;
 
+    @Size(max = 1)
+    @NotNull
+    @Column(name = "status", nullable = false, length = 1)
+    private String status;
+
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface AddressMapper {
     @Mapping(source = "addressName", target = "name")
+    @Mapping(constant = "A", target = "status")
     Address toAddress(AddressRequest addressRequest);
 
     @Mapping(source = "id", target = "addressId")
