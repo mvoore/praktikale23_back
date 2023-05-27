@@ -13,6 +13,5 @@ public class CompaniesService {
     public Company getCompany(Integer userId) {
         Company company = companyService.findCompanyBy(userId);
         return company;
-
     }
 }
