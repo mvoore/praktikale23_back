@@ -20,12 +20,10 @@ public class AddressesController {
     }
 
     @GetMapping
-    @Operation(summary = "Leiab andmebaasist firmaga seotud aadressid")
+    @Operation(summary = "Leiab andmebaasist firmaga seotud aadressid ja tagastab need aadressile antud nimena")
     public List<AddressDto> findCompanyAddresses(@RequestParam Integer userId) {
         List<AddressDto> addresses = addressesService.getCompanyAddress(userId);
         return addresses;
-
     }
-
 
 }

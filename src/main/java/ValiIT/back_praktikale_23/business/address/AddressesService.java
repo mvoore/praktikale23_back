@@ -42,8 +42,10 @@ public class AddressesService {
 
     public List<AddressDto> getCompanyAddress(Integer userId) {
         Company company = companyService.findCompanyBy(userId);
-        List<Address> addresses = addressService.getCompanyAddressBy(company.getUser().getId());
+        List<Address> addresses = addressService.getCompanyAddressBy(company.getId());
         List<AddressDto> addressesDto = addressMapper.toAddressesDto(addresses);
         return addressesDto;
     }
+
+
 }

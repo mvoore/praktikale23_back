@@ -20,5 +20,7 @@ public interface AddressMapper {
     AddressDto toAddressDto(Address address);
 
 
+
     List<AddressDto> toAddressesDto(List<Address> addresses);
+
 }

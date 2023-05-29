@@ -1,5 +1,6 @@
 package ValiIT.back_praktikale_23.business.internship;
 
+import ValiIT.back_praktikale_23.business.internship.dto.CompanyInternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
 import io.swagger.v3.oas.annotations.Operation;
@@ -23,8 +24,6 @@ public class InternshipsController {
     public List<InternshipDto> getInternships(@RequestParam Integer sortValue, @RequestParam Integer regionId, @RequestParam Integer categoryId) {
         List<InternshipDto> internships = internshipsService.getInternships(sortValue, regionId, categoryId);
         return internships;
-
-
     }
 
 
@@ -32,6 +31,13 @@ public class InternshipsController {
     @Operation(summary = "Uue praktika pakkumise lisamine.")
     public void addInternship(@RequestBody InternshipRequest internshipRequest){
     internshipsService.addInternship(internshipRequest);
+    }
+
+    @GetMapping("/company-internships")
+    @Operation(summary = "Leiab andmebaasist konkreetse firma aktiivsed praktika pakkumised userId järgi")
+    public List<CompanyInternshipDto> getCompanyInternships(@RequestParam Integer userId) {
+        List<CompanyInternshipDto> companyInternships = internshipsService.getCompanyInternships(userId);
+        return companyInternships;
     }
 }
 
