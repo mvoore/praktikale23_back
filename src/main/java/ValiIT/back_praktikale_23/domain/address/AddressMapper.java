@@ -2,6 +2,7 @@ package ValiIT.back_praktikale_23.domain.address;
 
 import ValiIT.back_praktikale_23.business.address.dto.AddressDto;
 import ValiIT.back_praktikale_23.business.address.dto.AddressRequest;
+import ValiIT.back_praktikale_23.business.address.dto.CompanyAddressesDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
@@ -19,8 +20,16 @@ public interface AddressMapper {
     @Mapping(source = "name", target = "addressName")
     AddressDto toAddressDto(Address address);
 
+    @Mapping(source = "id", target = "addressId")
+    @Mapping(source = "region.name", target = "regionName")
+    @Mapping(source = "city.name", target = "cityName")
+    @Mapping(source = "street", target = "street")
+    @Mapping(source = "streetNumber", target = "streetNumber")
+    CompanyAddressesDto toDto(Address address);
 
 
     List<AddressDto> toAddressesDto(List<Address> addresses);
 
+
+    List<CompanyAddressesDto> toDtos(List<Address> companyAddresses);
 }
