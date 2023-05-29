@@ -1,6 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2023-05-24 06:35:18.828
-
 -- tables
 -- Table: address
 CREATE TABLE address
@@ -18,7 +17,6 @@ CREATE TABLE address
     status        varchar(1)    NOT NULL,
     CONSTRAINT address_pk PRIMARY KEY (id)
 );
-
 -- Table: application
 CREATE TABLE application
 (
@@ -31,7 +29,6 @@ CREATE TABLE application
     message       varchar(255) NULL,
     CONSTRAINT application_pk PRIMARY KEY (id)
 );
-
 -- Table: category
 CREATE TABLE category
 (
@@ -39,7 +36,6 @@ CREATE TABLE category
     name varchar(255) NOT NULL,
     CONSTRAINT category_pk PRIMARY KEY (id)
 );
-
 -- Table: city
 CREATE TABLE city
 (
@@ -47,7 +43,6 @@ CREATE TABLE city
     name varchar(255) NOT NULL,
     CONSTRAINT city_pk PRIMARY KEY (id)
 );
-
 -- Table: company
 CREATE TABLE company
 (
@@ -58,7 +53,6 @@ CREATE TABLE company
     email        varchar(255) NOT NULL,
     CONSTRAINT company_pk PRIMARY KEY (id)
 );
-
 -- Table: cover_letter
 CREATE TABLE cover_letter
 (
@@ -68,7 +62,6 @@ CREATE TABLE cover_letter
     user_id int          NOT NULL,
     CONSTRAINT cover_letter_pk PRIMARY KEY (id)
 );
-
 -- Table: cv
 CREATE TABLE cv
 (
@@ -78,7 +71,6 @@ CREATE TABLE cv
     user_id int          NOT NULL,
     CONSTRAINT cv_pk PRIMARY KEY (id)
 );
-
 -- Table: image
 CREATE TABLE image
 (
@@ -86,7 +78,6 @@ CREATE TABLE image
     data bytea  NOT NULL,
     CONSTRAINT image_pk PRIMARY KEY (id)
 );
-
 -- Table: internship
 CREATE TABLE internship
 (
@@ -100,7 +91,6 @@ CREATE TABLE internship
     image_id    int           NULL,
     CONSTRAINT internship_pk PRIMARY KEY (id)
 );
-
 -- Table: internship_address
 CREATE TABLE internship_address
 (
@@ -109,7 +99,6 @@ CREATE TABLE internship_address
     internship_id int    NOT NULL,
     CONSTRAINT internship_address_pk PRIMARY KEY (id)
 );
-
 -- Table: region
 CREATE TABLE region
 (
@@ -117,7 +106,6 @@ CREATE TABLE region
     name varchar(255) NOT NULL,
     CONSTRAINT region_pk PRIMARY KEY (id)
 );
-
 -- Table: role
 CREATE TABLE role
 (
@@ -125,7 +113,6 @@ CREATE TABLE role
     name varchar(255) NOT NULL,
     CONSTRAINT role_pk PRIMARY KEY (id)
 );
-
 -- Table: user
 CREATE TABLE "user"
 (
@@ -136,7 +123,6 @@ CREATE TABLE "user"
     role_id  int          NOT NULL,
     CONSTRAINT user_pk PRIMARY KEY (id)
 );
-
 -- foreign keys
 -- Reference: address_city (table: address)
 ALTER TABLE address
@@ -146,7 +132,6 @@ ALTER TABLE address
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: address_company (table: address)
 ALTER TABLE address
     ADD CONSTRAINT address_company
@@ -155,7 +140,6 @@ ALTER TABLE address
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: address_region (table: address)
 ALTER TABLE address
     ADD CONSTRAINT address_region
@@ -164,7 +148,6 @@ ALTER TABLE address
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: application_internship (table: application)
 ALTER TABLE application
     ADD CONSTRAINT application_internship
@@ -173,7 +156,6 @@ ALTER TABLE application
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: application_user (table: application)
 ALTER TABLE application
     ADD CONSTRAINT application_user
@@ -182,7 +164,6 @@ ALTER TABLE application
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: company_user (table: company)
 ALTER TABLE company
     ADD CONSTRAINT company_user
@@ -191,7 +172,6 @@ ALTER TABLE company
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: cover_letter_user (table: cover_letter)
 ALTER TABLE cover_letter
     ADD CONSTRAINT cover_letter_user
@@ -200,7 +180,6 @@ ALTER TABLE cover_letter
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: cv_user (table: cv)
 ALTER TABLE cv
     ADD CONSTRAINT cv_user
@@ -209,7 +188,6 @@ ALTER TABLE cv
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: internship_address_address (table: internship_address)
 ALTER TABLE internship_address
     ADD CONSTRAINT internship_address_address
@@ -218,7 +196,6 @@ ALTER TABLE internship_address
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: internship_address_internship (table: internship_address)
 ALTER TABLE internship_address
     ADD CONSTRAINT internship_address_internship
@@ -227,7 +204,6 @@ ALTER TABLE internship_address
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: internship_category (table: internship)
 ALTER TABLE internship
     ADD CONSTRAINT internship_category
@@ -236,7 +212,6 @@ ALTER TABLE internship
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: internship_company (table: internship)
 ALTER TABLE internship
     ADD CONSTRAINT internship_company
@@ -245,7 +220,6 @@ ALTER TABLE internship
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: internship_image (table: internship)
 ALTER TABLE internship
     ADD CONSTRAINT internship_image
@@ -254,7 +228,6 @@ ALTER TABLE internship
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- Reference: user_role (table: user)
 ALTER TABLE "user"
     ADD CONSTRAINT user_role
@@ -263,6 +236,4 @@ ALTER TABLE "user"
             NOT DEFERRABLE
                 INITIALLY IMMEDIATE
 ;
-
 -- End of file.
-

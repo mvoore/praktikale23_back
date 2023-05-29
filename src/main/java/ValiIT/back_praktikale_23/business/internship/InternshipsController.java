@@ -30,8 +30,16 @@ public class InternshipsController {
 
     @PostMapping("/new-offer")
     @Operation(summary = "Uue praktika pakkumise lisamine.")
-    public void addInternship(@RequestBody InternshipRequest internshipRequest){
-    internshipsService.addInternship(internshipRequest);
+    public void addInternship(@RequestBody InternshipRequest request){
+    internshipsService.addInternship(request);
     }
+
+    @PutMapping("/new-offer")
+    @Operation(summary = "Toob eelnevalt sisestatud praktika pakkumise detailid ja muudab andmed (kirjutab üle) ")
+    public void editInternship(@RequestParam Integer internshipId, @RequestBody InternshipRequest request) {
+        internshipsService.editInternship(internshipId, request);
+    }
+
+
 }
 

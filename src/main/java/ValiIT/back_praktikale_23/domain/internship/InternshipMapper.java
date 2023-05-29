@@ -4,10 +4,16 @@ import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
 import org.mapstruct.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING, imports = {LocalDate.class})
 public interface InternshipMapper {
     @Mapping(constant = "A", target = "status")
     @Mapping(expression = "java(LocalDate.now())", target = "dateAdded")
     Internship toEntity(InternshipRequest internshipDto);
+
+
+    Internship partialUpdate(InternshipRequest internshipRequest, @MappingTarget Internship internship);
+
+
 }

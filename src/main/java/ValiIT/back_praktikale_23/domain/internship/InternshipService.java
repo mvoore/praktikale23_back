@@ -22,4 +22,10 @@ public class InternshipService {
     public void addInternship(Internship internship) {
         internshipRepository.save(internship);
     }
+
+
+    public Internship getInternshipBy(Integer internshipId) {
+        return internshipRepository.findById(internshipId).get();
+
+    }
 }
