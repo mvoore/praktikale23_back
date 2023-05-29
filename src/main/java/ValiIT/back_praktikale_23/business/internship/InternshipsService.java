@@ -1,5 +1,6 @@
 package ValiIT.back_praktikale_23.business.internship;
 
+import ValiIT.back_praktikale_23.business.internship.dto.CompanyInternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
 import ValiIT.back_praktikale_23.domain.address.Address;
@@ -96,4 +97,9 @@ public class InternshipsService {
         internship.setCompany(company);
     }
 
+    public List<CompanyInternshipDto> getCompanyInternships(Integer userId) {
+        List<InternshipAddress> companyActiveInternships = internshipAddressService.getCompanyActiveInternshipsBy(userId);
+        List<CompanyInternshipDto> internshipDtos = internshipMapper.toDtos(companyActiveInternships);
+        return internshipDtos;
+    }
 }

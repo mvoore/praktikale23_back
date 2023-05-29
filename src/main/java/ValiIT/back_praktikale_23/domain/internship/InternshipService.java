@@ -1,5 +1,6 @@
 package ValiIT.back_praktikale_23.domain.internship;
 
+import ValiIT.back_praktikale_23.business.Status;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,10 @@ public class InternshipService {
 
     public void addInternship(Internship internship) {
         internshipRepository.save(internship);
+    }
+
+    public List<Internship> getCompanyActiveInternshipsBy(Integer userId) {
+        List<Internship> companyActiveInternships = internshipRepository.findCompanyActiveInternshipsBy(userId, Status.ACTIVE.getLetter());
+        return companyActiveInternships;
     }
 }
