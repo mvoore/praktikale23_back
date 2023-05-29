@@ -2,6 +2,7 @@ package ValiIT.back_praktikale_23.business.address;
 
 import ValiIT.back_praktikale_23.business.address.dto.AddressDto;
 import ValiIT.back_praktikale_23.business.address.dto.AddressRequest;
+import ValiIT.back_praktikale_23.business.address.dto.CompanyAddressDto;
 import ValiIT.back_praktikale_23.domain.address.Address;
 import ValiIT.back_praktikale_23.domain.address.AddressMapper;
 import ValiIT.back_praktikale_23.domain.address.AddressService;
@@ -42,8 +43,15 @@ public class AddressesService {
 
     public List<AddressDto> getCompanyAddress(Integer userId) {
         Company company = companyService.findCompanyBy(userId);
-        List<Address> addresses = addressService.getCompanyAddressBy(company.getUser().getId());
+        List<Address> addresses = addressService.getCompanyAddressBy(company.getId());
         List<AddressDto> addressesDto = addressMapper.toAddressesDto(addresses);
         return addressesDto;
+    }
+
+    public List<CompanyAddressDto> findCompanyAddresses(Integer userId) {
+        Company company = companyService.findCompanyBy(userId);
+        List<Address> addresses = addressService.getCompanyAddressBy(company.getUser().getId());
+        List<CompanyAddressDto> companyAddressDto = addressMapper.toCompanyAddressDto(addresses);
+        return companyAddressDto;
     }
 }
