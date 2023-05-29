@@ -19,5 +19,4 @@ public class CompanyAddressesDto implements Serializable {
     private String street;
     private Integer streetNumber;
     private Integer postalCode;
-    private String status;
 }
