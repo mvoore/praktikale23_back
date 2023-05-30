@@ -1,5 +1,6 @@
 package ValiIT.back_praktikale_23.business.internship;
 
+import ValiIT.back_praktikale_23.business.internship.dto.CompanyInternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
 import io.swagger.v3.oas.annotations.Operation;

@@ -1,9 +1,12 @@
 package ValiIT.back_praktikale_23.domain.internship;
 
+import ValiIT.back_praktikale_23.business.internship.dto.CompanyInternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
+import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddress;
 import org.mapstruct.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING, imports = {LocalDate.class})
 public interface InternshipMapper {

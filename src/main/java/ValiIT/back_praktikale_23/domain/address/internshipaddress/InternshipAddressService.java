@@ -1,10 +1,12 @@
 package ValiIT.back_praktikale_23.domain.address.internshipaddress;
 
+import ValiIT.back_praktikale_23.business.Status;
 import jakarta.annotation.Resource;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InternshipAddressService {
