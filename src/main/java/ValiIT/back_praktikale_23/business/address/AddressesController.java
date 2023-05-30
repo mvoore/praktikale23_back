@@ -24,14 +24,13 @@ public class AddressesController {
     @GetMapping
     @Operation(summary = "Leiab andmebaasist firmaga seotud aadressid ja tagastab need aadressile antud nimena")
     public List<AddressDto> findCompanyAddresses(@RequestParam Integer userId) {
-        List<AddressDto> addresses = addressesService.getCompanyAddress(userId);
-        return addresses;
+        return addressesService.getCompanyAddress(userId);
     }
 
     @GetMapping("/company-addresses")
     @Operation(summary = "Leiab andmebaasist firmaga seotud aktiivsed aadressid userId abil ja tagastab kogu nendega seotud info")
     public List<CompanyAddressesDto> getCompanyAddresses(@RequestParam Integer userId) {
-        List<CompanyAddressesDto> companyAddresses = addressesService.getCompanyAddresses(userId);
-        return companyAddresses;
+            return addressesService.getCompanyAddresses(userId);
+        }
     }
-}
+
