@@ -25,7 +25,6 @@ public class InternshipsController {
         List<InternshipDto> internships = internshipsService.getInternships(sortValue, regionId, categoryId);
         return internships;
 
-
     }
 
 
