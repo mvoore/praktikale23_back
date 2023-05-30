@@ -7,5 +7,6 @@ import java.io.Serializable;
 @Data
 public class LoginResponse implements Serializable {
     private Integer userId;
+    private Integer companyId;
     private String roleName;
 }
