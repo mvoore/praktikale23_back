@@ -15,10 +15,7 @@ public class InternshipService {
     public List<Internship> getActiveInternshipsBy(Integer regionId, Integer categoryId) {
         List<Internship> internships = internshipRepository.findAll();
         return internships;
-
-
     }
-
 
     public void addInternship(Internship internship) {
         internshipRepository.save(internship);
