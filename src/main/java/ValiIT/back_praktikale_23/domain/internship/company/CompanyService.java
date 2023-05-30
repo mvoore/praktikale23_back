@@ -14,4 +14,8 @@ public class CompanyService {
         Company company = companyRepository.findCompanyBy(userId);
         return company;
     }
+
+    public void addCompany(Company company) {
+        companyRepository.save(company);
+    }
 }
