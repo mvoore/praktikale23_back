@@ -5,6 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface CompanyRepository extends JpaRepository<Company, Integer> {
     @Query("select c from Company c where c.user.id = ?1")
-    Company findCompanyBy(Integer userId);
+    Company findCompanyBy(Integer Id);
+
+
+
+
 
 }

@@ -28,4 +28,10 @@ public class InternshipService {
         List<Internship> companyActiveInternships = internshipRepository.findCompanyActiveInternshipsBy(userId, Status.ACTIVE.getLetter());
         return companyActiveInternships;
     }
+
+
+    public Internship getInternshipBy(Integer internshipId) {
+        return internshipRepository.findById(internshipId).get();
+
+    }
 }

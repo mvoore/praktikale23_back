@@ -33,6 +33,14 @@ public class InternshipsController {
     internshipsService.addInternship(internshipRequest);
     }
 
+    @PutMapping("/new-offer")
+    @Operation(summary = "Toob eelnevalt sisestatud praktika pakkumise detailid ja muudab andmed (kirjutab üle) ")
+    public void editInternship(@RequestParam Integer internshipId, @RequestBody InternshipRequest request) {
+        internshipsService.editInternship(internshipId, request);
+    }
+
+
+
     @GetMapping("/company-internships")
     @Operation(summary = "Leiab andmebaasist konkreetse firma aktiivsed praktika pakkumised userId järgi")
     public List<CompanyInternshipDto> getCompanyInternships(@RequestParam Integer userId) {

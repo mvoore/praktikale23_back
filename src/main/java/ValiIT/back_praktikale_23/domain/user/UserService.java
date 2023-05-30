@@ -1,7 +1,6 @@
 package ValiIT.back_praktikale_23.domain.user;
 
-import ValiIT.back_praktikale_23.business.user.dto.NewUserRequest;
-import ValiIT.back_praktikale_23.domain.user.role.Role;
+import ValiIT.back_praktikale_23.domain.internship.company.Company;
 import ValiIT.back_praktikale_23.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -33,4 +32,9 @@ public class UserService {
     }
 
 
+    public User findUserBy(Company company, Integer userId) {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        User user = optionalUser.get();
+        return user;
+    }
 }
