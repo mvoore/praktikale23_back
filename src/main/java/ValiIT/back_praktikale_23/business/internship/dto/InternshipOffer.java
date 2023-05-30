@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InternshipRequest implements Serializable {
+public class InternshipOffer implements Serializable {
     private Integer userId;
     private Integer addressId;
     private String title;

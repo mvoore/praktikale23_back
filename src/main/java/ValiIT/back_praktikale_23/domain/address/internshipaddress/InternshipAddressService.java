@@ -30,7 +30,7 @@ public class InternshipAddressService {
         internshipAddressRepository.save(internshipAddress);
     }
 
-    public InternshipAddress findInternshipAddressById(Integer internshipId) {
+    public InternshipAddress findInternshipAddressBy(Integer internshipId) {
         Optional<InternshipAddress> optionalInternshipAddress = internshipAddressRepository.findById(internshipId);
         InternshipAddress internshipAddress = optionalInternshipAddress.get();
         return internshipAddress;

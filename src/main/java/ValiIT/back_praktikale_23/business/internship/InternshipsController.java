@@ -2,7 +2,7 @@ package ValiIT.back_praktikale_23.business.internship;
 
 import ValiIT.back_praktikale_23.business.internship.dto.CompanyInternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
-import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
+import ValiIT.back_praktikale_23.business.internship.dto.InternshipOffer;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -31,13 +31,13 @@ public class InternshipsController {
 
     @PostMapping("/new-offer")
     @Operation(summary = "Uue praktika pakkumise lisamine.")
-    public void addInternship(@RequestBody InternshipRequest internshipRequest){
-    internshipsService.addInternship(internshipRequest);
+    public void addInternship(@RequestBody InternshipOffer internshipOffer){
+    internshipsService.addInternship(internshipOffer);
     }
 
-    @PutMapping("/new-offer")
+    @PutMapping("/edit-internship")
     @Operation(summary = "Toob eelnevalt sisestatud praktika pakkumise detailid ja muudab andmed (kirjutab üle) ")
-    public void editInternship(@RequestParam Integer internshipId, @RequestBody InternshipRequest request) {
+    public void editInternship(@RequestParam Integer internshipId, @RequestBody InternshipOffer request) {
         internshipsService.editInternship(internshipId, request);
     }
 
@@ -48,6 +48,14 @@ public class InternshipsController {
     public List<CompanyInternshipDto> getCompanyInternships(@RequestParam Integer userId) {
         List<CompanyInternshipDto> companyInternships = internshipsService.getCompanyInternships(userId);
         return companyInternships;
+    }
+
+    @GetMapping("/offer")
+    @Operation(summary ="Leiab andmebaasist konkreetse praktika pakkumise (internshipId alusel) info.")
+    public InternshipOffer getInternshipOffer(@RequestParam Integer internshipId) {
+        return internshipsService.getInternshipOffer(internshipId);
+
+
     }
 }
 
