@@ -2,12 +2,11 @@ package ValiIT.back_praktikale_23.business.internship;
 
 import ValiIT.back_praktikale_23.business.internship.dto.CompanyInternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
-import ValiIT.back_praktikale_23.business.internship.dto.InternshipRequest;
+import ValiIT.back_praktikale_23.business.internship.dto.InternshipOffer;
 import ValiIT.back_praktikale_23.domain.address.Address;
 import ValiIT.back_praktikale_23.domain.address.AddressService;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddress;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressMapper;
-import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressRepository;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressService;
 import ValiIT.back_praktikale_23.domain.internship.Internship;
 import ValiIT.back_praktikale_23.domain.internship.InternshipMapper;
@@ -24,8 +23,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
-import static ValiIT.back_praktikale_23.util.ImageUtil.base64ImageDataToByteArray;
 
 @Service
 public class InternshipsService {
@@ -53,11 +50,6 @@ public class InternshipsService {
 
     @Resource
     private AddressService addressService;
-    private final InternshipAddressRepository internshipAddressRepository;
-
-    public InternshipsService(InternshipAddressRepository internshipAddressRepository) {
-        this.internshipAddressRepository = internshipAddressRepository;
-    }
 
 
     public List<InternshipDto> getInternships(Integer sortValue, Integer regionId, Integer categoryId) {
@@ -67,7 +59,7 @@ public class InternshipsService {
     }
 
     @Transactional
-    public void addInternship(InternshipRequest request) {
+    public void addInternship(InternshipOffer request) {
         Internship internship = internshipMapper.toEntity(request);
         setCategory(internship, request.getCategoryId());
         setImage(internship, request.getImageData());
@@ -94,7 +86,7 @@ public class InternshipsService {
 
     private void setImage(Internship internship, String imageData) {
         Image image = new Image();
-        byte[] data = base64ImageDataToByteArray(imageData);
+        byte[] data = ImageUtil.base64ImageDataToByteArray(imageData);
         image.setData(data);
         imageService.addImage(image);
         internship.setImage(image);
@@ -106,32 +98,21 @@ public class InternshipsService {
     }
 
     @Transactional
-    public void editInternship(Integer internshipId, InternshipRequest request) {
+    public void editInternship(Integer internshipId, InternshipOffer request) {
         Internship internship = internshipService.getInternshipBy(internshipId);
         internshipMapper.partialUpdate(request, internship);
         setCompany(internship, request.getUserId());
         setCategory(internship, request.getCategoryId());
-        InternshipAddress internshipAddress = internshipAddressService.findInternshipAddressById(internshipId);
+        InternshipAddress internshipAddress = internshipAddressService.findInternshipAddressBy(internshipId);
         Address address = addressService.findAddressBy(request.getAddressId());
         internshipAddress.setAddress(address);
         internshipAddressService.addInternshipAddress(internshipAddress);
         handleImageChange(internship, request);
         internshipService.addInternship(internship);
 
-
-        // TODO: InternshipId abil leida üles internshipAddress (objekt/rida).
-        // TODO: addressId abil leida üles address (objekt/rida). Setteriga panna see internshipAddress külge
-        //  ja salvestame InternshipAddress tabelisse.
-
-
-        // TODO: internshipi küljest vaadata getImage() abil et kas internship objekti küles on pilt
-        //  Kui requesti imageData ei ole tühi string siis converdime selle ümber, lisame setteriga Image külge ja salvestame Image tabelisse
-        //  Kui internshipi küljes ei ole imaget ja Image data ei ole tühi string siis me teeme uue image objekti, salvestame image tabelisse ära ja paneme image Internshipi külge
-
-
     }
 
-    private void handleImageChange(Internship internship, InternshipRequest request) {
+    private void handleImageChange(Internship internship, InternshipOffer request) {
         Image currentImage = internship.getImage();
 
         if (currentImageUpdateIsRequired(currentImage, request.getImageData())) {
@@ -152,9 +133,20 @@ public class InternshipsService {
     private static boolean newImageIsRequired(String imageDataFromUpdate, Image currentImage) {
         return currentImage == null && !imageDataFromUpdate.isEmpty();
     }
+
     public List<CompanyInternshipDto> getCompanyInternships(Integer userId) {
         List<InternshipAddress> companyActiveInternships = internshipAddressService.getCompanyActiveInternshipsBy(userId);
         List<CompanyInternshipDto> internshipDtos = internshipMapper.toDtos(companyActiveInternships);
         return internshipDtos;
     }
+
+    public InternshipOffer getInternshipOffer(Integer internshipId) {
+        Internship internship = internshipService.getInternshipBy(internshipId);
+        InternshipOffer offer =internshipMapper.toInternshipOffer(internship);
+        InternshipAddress internshipAddress = internshipAddressService.findInternshipAddressBy(internshipId);
+        offer.setAddressId(internshipAddress.getAddress().getId());
+        return offer;
+    }
+
+
 }

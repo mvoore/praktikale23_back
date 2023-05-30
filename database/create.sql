@@ -1,5 +1,6 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2023-05-24 06:35:18.828
+
 -- tables
 -- Table: address
 CREATE TABLE address
@@ -17,6 +18,7 @@ CREATE TABLE address
     status        varchar(1)    NOT NULL,
     CONSTRAINT address_pk PRIMARY KEY (id)
 );
+
 -- Table: application
 CREATE TABLE application
 (
@@ -29,6 +31,7 @@ CREATE TABLE application
     message       varchar(255) NULL,
     CONSTRAINT application_pk PRIMARY KEY (id)
 );
+
 -- Table: category
 CREATE TABLE category
 (
