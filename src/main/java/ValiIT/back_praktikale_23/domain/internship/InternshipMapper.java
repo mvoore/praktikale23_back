@@ -20,7 +20,6 @@ public interface InternshipMapper {
     Internship partialUpdate(InternshipOffer internshipOffer, @MappingTarget Internship internship);
 
 
-
     @Mapping(source = "id", target = "internshipId")
     @Mapping(source = "internship.title", target = "title")
     @Mapping(source = "internship.category.name", target = "categoryName")
@@ -29,8 +28,8 @@ public interface InternshipMapper {
 
     List<CompanyInternshipDto> toDtos(List<InternshipAddress> internshipAddresses);
 
-    @Mapping(source="company.user.id",target = "userId")
-    @Mapping(source="category.id",target = "categoryId")
+    @Mapping(source = "company.user.id", target = "userId")
+    @Mapping(source = "category.id", target = "categoryId")
     @Mapping(source = "image", target = "imageData", qualifiedByName = "imageToImageData")
     InternshipOffer toInternshipOffer(Internship internship);
 
@@ -44,4 +43,7 @@ public interface InternshipMapper {
         return ImageUtil.byteArrayToBase64ImageData(imageData);
     }
 
+    @Mapping(source = "id", target = "internshipId")
+    @Mapping(source = "company.email", target = "companyEmail")
+    InternshipDetailToApplication internshipDetailToApplication(Internship internship);
 }

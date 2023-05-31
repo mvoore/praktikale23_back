@@ -3,6 +3,7 @@ package ValiIT.back_praktikale_23.business.internship;
 import ValiIT.back_praktikale_23.business.internship.dto.CompanyInternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipOffer;
+import ValiIT.back_praktikale_23.domain.internship.InternshipDetailToApplication;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -58,8 +59,16 @@ public class InternshipsController {
     @Operation(summary ="Leiab andmebaasist konkreetse praktika pakkumise (internshipId alusel) info.")
     public InternshipOffer getInternshipOffer(@RequestParam Integer internshipId) {
         return internshipsService.getInternshipOffer(internshipId);
+    }
 
+    @GetMapping("/application")
+    @Operation(summary = "Toob internshipId alusel application väljale automaatselt company emaili ")
+    public InternshipDetailToApplication getInternshipDetailsToApplication(@RequestParam Integer internshipId){
+        InternshipDetailToApplication internshipDetailsToApplication = internshipsService.getInternshipDetailsToApplication(internshipId);
+        return internshipDetailsToApplication;
 
     }
+
+
 }
 

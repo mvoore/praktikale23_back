@@ -10,6 +10,7 @@ import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddr
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressMapper;
 import ValiIT.back_praktikale_23.domain.address.internshipaddress.InternshipAddressService;
 import ValiIT.back_praktikale_23.domain.internship.Internship;
+import ValiIT.back_praktikale_23.domain.internship.InternshipDetailToApplication;
 import ValiIT.back_praktikale_23.domain.internship.InternshipMapper;
 import ValiIT.back_praktikale_23.domain.internship.InternshipService;
 import ValiIT.back_praktikale_23.domain.internship.category.Category;
@@ -162,4 +163,9 @@ public class InternshipsService {
         return offer;
     }
 
+    public InternshipDetailToApplication getInternshipDetailsToApplication(Integer internshipId) {
+        Internship internship = internshipService.getInternshipBy(internshipId);
+        InternshipDetailToApplication internshipDetailToApplication = internshipMapper.internshipDetailToApplication(internship);
+        return internshipDetailToApplication;
+    }
 }
