@@ -16,18 +16,13 @@ public class InternshipsController {
     @Resource
     private InternshipsService internshipsService;
 
-
-
     @GetMapping("/internships")
     @Operation(summary = "Leiab andmebaasist kõik praktika pakkumised",
             description = "Kui regionId on 0 ja/või categoryId on 0, siis tagastatakse kõik pakkumised ")
     public List<InternshipDto> getInternships(@RequestParam Integer sortValue, @RequestParam Integer regionId, @RequestParam Integer categoryId) {
         List<InternshipDto> internships = internshipsService.getInternships(sortValue, regionId, categoryId);
         return internships;
-
-
     }
-
 
     @PostMapping("/new-offer")
     @Operation(summary = "Uue praktika pakkumise lisamine.")
@@ -41,21 +36,25 @@ public class InternshipsController {
         internshipsService.editInternship(internshipId, request);
     }
 
+    @GetMapping("/active-internships")
+    @Operation(summary = "Leiab andmebaasist firma aktiivsed praktika pakkumised userId järgi")
+    public List<CompanyInternshipDto> getActiveInternships(@RequestParam Integer userId) {
+        List<CompanyInternshipDto> activeInternships = internshipsService.getActiveInternships(userId);
+        return activeInternships;
+    }
 
-
-    @GetMapping("/company-internships")
-    @Operation(summary = "Leiab andmebaasist konkreetse firma aktiivsed praktika pakkumised userId järgi")
-    public List<CompanyInternshipDto> getCompanyInternships(@RequestParam Integer userId) {
-        List<CompanyInternshipDto> companyInternships = internshipsService.getCompanyInternships(userId);
-        return companyInternships;
+    @GetMapping("/inactive-internships")
+    @Operation(summary = "Leiab andmebaasist firma mitte aktiivsed praktika pakkumised userId Järgi")
+    public List<CompanyInternshipDto> getInactiveInternships(@RequestParam Integer userId) {
+        List<CompanyInternshipDto> inactiveInternships = internshipsService.getInactiveInternships(userId);
+        return inactiveInternships;
     }
 
     @GetMapping("/offer")
     @Operation(summary ="Leiab andmebaasist konkreetse praktika pakkumise (internshipId alusel) info.")
     public InternshipOffer getInternshipOffer(@RequestParam Integer internshipId) {
         return internshipsService.getInternshipOffer(internshipId);
-
-
     }
+
 }
 

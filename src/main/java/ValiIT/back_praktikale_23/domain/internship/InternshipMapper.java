@@ -29,9 +29,6 @@ public interface InternshipMapper {
 
     List<CompanyInternshipDto> toDtos(List<InternshipAddress> internshipAddresses);
 
-
-
-
     @Mapping(source="company.user.id",target = "userId")
     @Mapping(source="category.id",target = "categoryId")
     @Mapping(source = "image", target = "imageData", qualifiedByName = "imageToImageData")
@@ -46,4 +43,5 @@ public interface InternshipMapper {
         byte[] imageData = image.getData();
         return ImageUtil.byteArrayToBase64ImageData(imageData);
     }
+
 }

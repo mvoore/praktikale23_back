@@ -1,5 +1,6 @@
 package ValiIT.back_praktikale_23.business.internship;
 
+import ValiIT.back_praktikale_23.business.Status;
 import ValiIT.back_praktikale_23.business.internship.dto.CompanyInternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipDto;
 import ValiIT.back_praktikale_23.business.internship.dto.InternshipOffer;
@@ -17,6 +18,8 @@ import ValiIT.back_praktikale_23.domain.internship.company.Company;
 import ValiIT.back_praktikale_23.domain.internship.company.CompanyService;
 import ValiIT.back_praktikale_23.domain.internship.image.Image;
 import ValiIT.back_praktikale_23.domain.internship.image.ImageService;
+import ValiIT.back_praktikale_23.domain.user.User;
+import ValiIT.back_praktikale_23.domain.user.UserService;
 import ValiIT.back_praktikale_23.util.ImageUtil;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -41,6 +44,9 @@ public class InternshipsService {
 
     @Resource
     private CompanyService companyService;
+
+    @Resource
+    private UserService userService;
 
     @Resource
     private InternshipAddressMapper internshipAddressMapper;
@@ -134,10 +140,18 @@ public class InternshipsService {
         return currentImage == null && !imageDataFromUpdate.isEmpty();
     }
 
-    public List<CompanyInternshipDto> getCompanyInternships(Integer userId) {
-        List<InternshipAddress> companyActiveInternships = internshipAddressService.getCompanyActiveInternshipsBy(userId);
-        List<CompanyInternshipDto> internshipDtos = internshipMapper.toDtos(companyActiveInternships);
-        return internshipDtos;
+    public List<CompanyInternshipDto> getActiveInternships(Integer userId) {
+        User user = userService.getUserBy(userId);
+        List<InternshipAddress> companyActiveInternships = internshipAddressService.getCompanyInternshipsBy(user, Status.ACTIVE);
+        List<CompanyInternshipDto> activeInternshipDtos = internshipMapper.toDtos(companyActiveInternships);
+        return activeInternshipDtos;
+    }
+
+    public List<CompanyInternshipDto> getInactiveInternships(Integer userId) {
+        User user = userService.getUserBy(userId);
+        List<InternshipAddress> companyInactiveInternships = internshipAddressService.getCompanyInternshipsBy(user, Status.DELETED);
+        List<CompanyInternshipDto> inactiveInternshipDtos = internshipMapper.toDtos(companyInactiveInternships);
+        return inactiveInternshipDtos;
     }
 
     public InternshipOffer getInternshipOffer(Integer internshipId) {
@@ -147,6 +161,5 @@ public class InternshipsService {
         offer.setAddressId(internshipAddress.getAddress().getId());
         return offer;
     }
-
 
 }

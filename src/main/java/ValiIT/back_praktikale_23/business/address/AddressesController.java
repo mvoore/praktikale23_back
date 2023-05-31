@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -30,7 +31,11 @@ public class AddressesController {
     @GetMapping("/company-addresses")
     @Operation(summary = "Leiab andmebaasist firmaga seotud aktiivsed aadressid userId abil ja tagastab kogu nendega seotud info")
     public List<CompanyAddressesDto> getCompanyAddresses(@RequestParam Integer userId) {
-            return addressesService.getCompanyAddresses(userId);
+        List<CompanyAddressesDto> companyAddresses = addressesService.getCompanyAddresses(userId);
+        if (companyAddresses.isEmpty()) {
+            return new ArrayList<>();
+        }
+        return companyAddresses;
         }
     }
 

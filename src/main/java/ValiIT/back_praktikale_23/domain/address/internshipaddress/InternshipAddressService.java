@@ -1,6 +1,7 @@
 package ValiIT.back_praktikale_23.domain.address.internshipaddress;
 
 import ValiIT.back_praktikale_23.business.Status;
+import ValiIT.back_praktikale_23.domain.user.User;
 import jakarta.annotation.Resource;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -34,12 +35,9 @@ public class InternshipAddressService {
         Optional<InternshipAddress> optionalInternshipAddress = internshipAddressRepository.findById(internshipId);
         InternshipAddress internshipAddress = optionalInternshipAddress.get();
         return internshipAddress;
-
     }
 
-
-
-    public List<InternshipAddress> getCompanyActiveInternshipsBy(Integer userId) {
-        return internshipAddressRepository.findInternshipAddressesBy(userId, Status.ACTIVE.getLetter());
+    public List<InternshipAddress> getCompanyInternshipsBy(User user, Status status) {
+        return internshipAddressRepository.findInternshipAddressesBy(user, status.getLetter());
     }
 }

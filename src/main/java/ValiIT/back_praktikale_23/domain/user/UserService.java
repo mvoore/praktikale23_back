@@ -37,4 +37,8 @@ public class UserService {
         User user = optionalUser.get();
         return user;
     }
+
+    public User getUserBy(Integer userId) {
+        return userRepository.findById(userId).get();
+    }
 }
