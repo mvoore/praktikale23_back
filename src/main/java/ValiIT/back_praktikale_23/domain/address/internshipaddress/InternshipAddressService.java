@@ -1,7 +1,6 @@
 package ValiIT.back_praktikale_23.domain.address.internshipaddress;
 
 import ValiIT.back_praktikale_23.business.Status;
-import ValiIT.back_praktikale_23.domain.internship.Internship;
 import ValiIT.back_praktikale_23.domain.user.User;
 import jakarta.annotation.Resource;
 import org.springframework.data.domain.Sort;
@@ -42,8 +41,4 @@ public class InternshipAddressService {
         return internshipAddressRepository.findInternshipAddressesBy(user, status.getLetter());
     }
 
-
-    public void deleteInternshipAddress(Internship internship) {
-        internshipAddressRepository.deleteInternshipAddress(internship.getId());
-    }
 }

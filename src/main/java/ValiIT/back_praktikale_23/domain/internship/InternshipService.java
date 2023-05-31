@@ -31,8 +31,4 @@ public class InternshipService {
         return internshipRepository.findById(internshipId).get();
 
     }
-
-    public void deleteByInternship(Integer internshipId) {
-        internshipRepository.deleteById(internshipId);
-    }
 }

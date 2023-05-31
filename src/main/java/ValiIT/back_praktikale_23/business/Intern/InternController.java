@@ -24,12 +24,6 @@ public class InternController {
         internService.addCoverletterToIntern(userId, coverletterRequest);
     }
 
-    @GetMapping
-    @Operation(summary = "Leiab andmebaasist interni fullnamei, ")
 
-
-
-
-    //todo GetUser PatchUser
 
 }
