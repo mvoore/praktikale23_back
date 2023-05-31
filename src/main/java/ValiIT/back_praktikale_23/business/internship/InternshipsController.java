@@ -59,12 +59,14 @@ public class InternshipsController {
     @Operation(summary ="Leiab andmebaasist konkreetse praktika pakkumise (internshipId alusel) info.")
     public InternshipOffer getInternshipOffer(@RequestParam Integer internshipId) {
         return internshipsService.getInternshipOffer(internshipId);
+    }
 
     @GetMapping("/application")
     @Operation(summary = "Toob internshipId alusel application väljale automaatselt company emaili ")
-    public InternshipDetailToApplication getInternshipDetailsToApplication(@RequestParam Integer internshipId){
+    public InternshipDetailToApplication getInternshipDetailsToApplication(@RequestParam Integer internshipId) {
         InternshipDetailToApplication internshipDetailsToApplication = internshipsService.getInternshipDetailsToApplication(internshipId);
         return internshipDetailsToApplication;
+    }
 
     @DeleteMapping("/delete-internship")
     @Operation(summary = "Võtab sisse internshipId ja muudab andmebaasis olemasoleva praktikapakkumise mitteaktiivseks")
