@@ -17,9 +17,8 @@ public class InternshipsController {
     private InternshipsService internshipsService;
 
 
-
     @GetMapping("/internships")
-    @Operation(summary = "Leiab andmebaasist kõik praktika pakkumised",
+    @Operation(summary = "Leiab andmebaasist kõik praktika pakkumised. Tgastab companyName,categoryName,regionName,title,dateAdded)",
             description = "Kui regionId on 0 ja/või categoryId on 0, siis tagastatakse kõik pakkumised ")
     public List<InternshipDto> getInternships(@RequestParam Integer sortValue, @RequestParam Integer regionId, @RequestParam Integer categoryId) {
         List<InternshipDto> internships = internshipsService.getInternships(sortValue, regionId, categoryId);
@@ -31,8 +30,8 @@ public class InternshipsController {
 
     @PostMapping("/new-offer")
     @Operation(summary = "Uue praktika pakkumise lisamine.")
-    public void addInternship(@RequestBody InternshipOffer internshipOffer){
-    internshipsService.addInternship(internshipOffer);
+    public void addInternship(@RequestBody InternshipOffer internshipOffer) {
+        internshipsService.addInternship(internshipOffer);
     }
 
     @PutMapping("/edit-internship")
@@ -40,7 +39,6 @@ public class InternshipsController {
     public void editInternship(@RequestParam Integer internshipId, @RequestBody InternshipOffer request) {
         internshipsService.editInternship(internshipId, request);
     }
-
 
 
     @GetMapping("/company-internships")
@@ -51,10 +49,9 @@ public class InternshipsController {
     }
 
     @GetMapping("/offer")
-    @Operation(summary ="Leiab andmebaasist konkreetse praktika pakkumise (internshipId alusel) info.")
+    @Operation(summary = "Leiab andmebaasist konkreetse praktika pakkumise (internshipId alusel) info.")
     public InternshipOffer getInternshipOffer(@RequestParam Integer internshipId) {
         return internshipsService.getInternshipOffer(internshipId);
-
 
     }
 }
