@@ -1,4 +1,8 @@
 package ValiIT.back_praktikale_23.business.Intern;
+import ValiIT.back_praktikale_23.domain.internship.application.Application;
+import ValiIT.back_praktikale_23.domain.internship.application.ApplicationMapper;
+import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationRequest;
+import ValiIT.back_praktikale_23.domain.internship.application.ApplicationService;
 import ValiIT.back_praktikale_23.domain.user.coverletter.Coverletter;
 import ValiIT.back_praktikale_23.domain.user.coverletter.CoverletterMapper;
 import ValiIT.back_praktikale_23.domain.user.coverletter.CoverletterService;
@@ -23,6 +27,12 @@ public class InternService {
     @Resource
     private CoverletterMapper coverletterMapper;
 
+    @Resource
+    private ApplicationMapper applicationMapper;
+
+    @Resource
+    private ApplicationService applicationService;
+
 
     public void addCvToIntern(Integer userId, CvRequest cvRequest) {
         Cv cv = cvMapper.toEntity(cvRequest);
@@ -36,4 +46,11 @@ public class InternService {
         coverletterService.setUserId(userId);
         coverletterService.addCoverletter(coverletter);
     }
+
+    public void addApplication(Integer userId,ApplicationRequest applicationRequest) {
+        Application application = applicationMapper.toEntity(applicationRequest);
+        applicationService.setUserId(userId);
+        applicationService.addApplication(application);
+    }
+
 }
