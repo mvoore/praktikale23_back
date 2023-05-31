@@ -5,6 +5,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InternshipService {
@@ -30,5 +31,19 @@ public class InternshipService {
     public Internship getInternshipBy(Integer internshipId) {
         return internshipRepository.findById(internshipId).get();
 
+    }
+
+    public void deactivateInternship(Integer internshipId) {
+        Optional<Internship> optionalInternship = internshipRepository.findById(internshipId);
+        Internship internship = optionalInternship.get();
+        internship.setStatus(Status.DELETED.getLetter());
+        internshipRepository.save(internship);
+    }
+
+    public void activateInternship(Integer internshipId) {
+        Optional<Internship> optionalInternship = internshipRepository.findById(internshipId);
+        Internship internship = optionalInternship.get();
+        internship.setStatus(Status.ACTIVE.getLetter());
+        internshipRepository.save(internship);
     }
 }
