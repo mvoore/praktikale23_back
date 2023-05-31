@@ -16,18 +16,22 @@ public class InternshipsController {
     @Resource
     private InternshipsService internshipsService;
 
+
+
     @GetMapping("/internships")
     @Operation(summary = "Leiab andmebaasist kõik praktika pakkumised",
             description = "Kui regionId on 0 ja/või categoryId on 0, siis tagastatakse kõik pakkumised ")
     public List<InternshipDto> getInternships(@RequestParam Integer sortValue, @RequestParam Integer regionId, @RequestParam Integer categoryId) {
         List<InternshipDto> internships = internshipsService.getInternships(sortValue, regionId, categoryId);
         return internships;
+
     }
+
 
     @PostMapping("/new-offer")
     @Operation(summary = "Uue praktika pakkumise lisamine.")
     public void addInternship(@RequestBody InternshipOffer internshipOffer){
-    internshipsService.addInternship(internshipOffer);
+        internshipsService.addInternship(internshipOffer);
     }
 
     @PutMapping("/edit-internship")
@@ -54,7 +58,8 @@ public class InternshipsController {
     @Operation(summary ="Leiab andmebaasist konkreetse praktika pakkumise (internshipId alusel) info.")
     public InternshipOffer getInternshipOffer(@RequestParam Integer internshipId) {
         return internshipsService.getInternshipOffer(internshipId);
-    }
 
+
+    }
 }
 

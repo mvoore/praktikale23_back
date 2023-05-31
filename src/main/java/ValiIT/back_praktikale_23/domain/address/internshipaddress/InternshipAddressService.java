@@ -40,4 +40,5 @@ public class InternshipAddressService {
     public List<InternshipAddress> getCompanyInternshipsBy(User user, Status status) {
         return internshipAddressRepository.findInternshipAddressesBy(user, status.getLetter());
     }
+
 }

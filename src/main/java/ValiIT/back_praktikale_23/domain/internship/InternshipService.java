@@ -29,5 +29,6 @@ public class InternshipService {
 
     public Internship getInternshipBy(Integer internshipId) {
         return internshipRepository.findById(internshipId).get();
+
     }
 }

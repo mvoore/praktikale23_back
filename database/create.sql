@@ -123,6 +123,8 @@ CREATE TABLE "user"
     status   char(1)      NOT NULL,
     username varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
+    full_name varchar(255) NULL,
+    email varchar(255) NULL,
     role_id  int          NOT NULL,
     CONSTRAINT user_pk PRIMARY KEY (id)
 );

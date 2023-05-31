@@ -1,6 +1,7 @@
 package ValiIT.back_praktikale_23.business.Intern;
-
-import ValiIT.back_praktikale_23.domain.user.User;
+import ValiIT.back_praktikale_23.domain.user.coverletter.Coverletter;
+import ValiIT.back_praktikale_23.domain.user.coverletter.CoverletterMapper;
+import ValiIT.back_praktikale_23.domain.user.coverletter.CoverletterService;
 import ValiIT.back_praktikale_23.domain.user.cv.CVService;
 import ValiIT.back_praktikale_23.domain.user.cv.Cv;
 import ValiIT.back_praktikale_23.domain.user.cv.CvMapper;
@@ -16,7 +17,11 @@ public class InternService {
     @Resource
     private CvMapper cvMapper;
 
+    @Resource
+    private CoverletterService coverletterService;
 
+    @Resource
+    private CoverletterMapper coverletterMapper;
 
 
     public void addCvToIntern(Integer userId, CvRequest cvRequest) {
@@ -25,11 +30,10 @@ public class InternService {
         cvService.addCv(cv);
 
     }
+
+    public void addCoverletterToIntern(Integer userId, CoverletterRequest coverletterRequest) {
+        Coverletter coverletter = coverletterMapper.toEntity(coverletterRequest);
+        coverletterService.setUserId(userId);
+        coverletterService.addCoverletter(coverletter);
+    }
 }
-
-
-
-
-//ToDO mappi cvrequest ümber cv objektiks
-// peale seda saab CVservicei kaudu salvestada uue rea cv tabelisse
-

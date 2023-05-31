@@ -32,6 +32,14 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Size(max = 255)
+    @Column(name = "full_name")
+    private String fullName;
+
+    @Size(max = 255)
+    @Column(name = "email")
+    private String email;
+
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id", nullable = false)
