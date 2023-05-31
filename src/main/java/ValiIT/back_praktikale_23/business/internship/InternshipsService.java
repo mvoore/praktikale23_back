@@ -162,4 +162,11 @@ public class InternshipsService {
         return offer;
     }
 
+    public void deleteInternships(Integer internshipId) {
+        Internship internship = internshipService.getInternshipBy(internshipId);
+        internship.setStatus("D");
+        internshipAddressService.deleteInternshipAddress(internship);
+        internshipService.deleteByInternship(internship.getId());
+
+    }
 }

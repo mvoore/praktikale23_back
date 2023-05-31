@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface InternshipAddressRepository extends JpaRepository<InternshipAddress, Integer> {
+
     @Query("""
             select i from InternshipAddress i
             where (i.address.region.id = ?1 or ?1 = 0 ) and (i.internship.category.id = ?2 or ?2 = 0) and i.internship.status = ?3""")
@@ -17,6 +18,5 @@ public interface InternshipAddressRepository extends JpaRepository<InternshipAdd
     List<InternshipAddress> findInternshipAddressesBy(User user, String status);
 
 
-
-
+    void deleteInternshipAddress(Integer internshipId);
 }

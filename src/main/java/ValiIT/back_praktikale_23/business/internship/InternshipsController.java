@@ -31,7 +31,7 @@ public class InternshipsController {
     @PostMapping("/new-offer")
     @Operation(summary = "Uue praktika pakkumise lisamine.")
     public void addInternship(@RequestBody InternshipOffer internshipOffer){
-    internshipsService.addInternship(internshipOffer);
+        internshipsService.addInternship(internshipOffer);
     }
 
     @PutMapping("/edit-internship")
@@ -40,13 +40,18 @@ public class InternshipsController {
         internshipsService.editInternship(internshipId, request);
     }
 
+    @GetMapping("/active-internships")
+    @Operation(summary = "Leiab andmebaasist firma aktiivsed praktika pakkumised userId järgi")
+    public List<CompanyInternshipDto> getActiveInternships(@RequestParam Integer userId) {
+        List<CompanyInternshipDto> activeInternships = internshipsService.getActiveInternships(userId);
+        return activeInternships;
+    }
 
-
-    @GetMapping("/company-internships")
-    @Operation(summary = "Leiab andmebaasist konkreetse firma aktiivsed praktika pakkumised userId järgi")
-    public List<CompanyInternshipDto> getCompanyInternships(@RequestParam Integer userId) {
-        List<CompanyInternshipDto> companyInternships = internshipsService.getCompanyInternships(userId);
-        return companyInternships;
+    @GetMapping("/inactive-internships")
+    @Operation(summary = "Leiab andmebaasist firma mitte aktiivsed praktika pakkumised userId Järgi")
+    public List<CompanyInternshipDto> getInactiveInternships(@RequestParam Integer userId) {
+        List<CompanyInternshipDto> inactiveInternships = internshipsService.getInactiveInternships(userId);
+        return inactiveInternships;
     }
 
     @GetMapping("/offer")
