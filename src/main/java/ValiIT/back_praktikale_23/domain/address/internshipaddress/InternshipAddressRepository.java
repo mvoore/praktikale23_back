@@ -17,6 +17,4 @@ public interface InternshipAddressRepository extends JpaRepository<InternshipAdd
     @Query("select i from InternshipAddress i where i.internship.company.user = ?1 and i.internship.status = ?2")
     List<InternshipAddress> findInternshipAddressesBy(User user, String status);
 
-
-    void deleteInternshipAddress(Integer internshipId);
 }

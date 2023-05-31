@@ -56,12 +56,5 @@ public class InternshipsController {
         return internshipsService.getInternshipOffer(internshipId);
     }
 
-    @DeleteMapping("/delete-internship")
-    @Operation(summary = "Muudab aktiivse praktika pakkumise mitte aktiivseks")
-    public void deleteInternship(@RequestParam Integer internshipId) {
-        internshipsService.deleteInternships(internshipId);
-    }
-
-
 }
 
