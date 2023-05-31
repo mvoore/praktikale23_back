@@ -168,4 +168,11 @@ public class InternshipsService {
         InternshipDetailToApplication internshipDetailToApplication = internshipMapper.internshipDetailToApplication(internship);
         return internshipDetailToApplication;
     }
+    public void deactivateInternship(Integer internshipId) {
+        internshipService.deactivateInternship(internshipId);
+    }
+
+    public void activateInternship(Integer internshipId) {
+        internshipService.activateInternship(internshipId);
+    }
 }
