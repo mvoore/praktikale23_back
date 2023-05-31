@@ -18,5 +18,4 @@ public interface InternshipAddressRepository extends JpaRepository<InternshipAdd
     List<InternshipAddress> findInternshipAddressesBy(User user, String status);
 
 
-    void deleteInternshipAddress(Integer internshipId);
 }

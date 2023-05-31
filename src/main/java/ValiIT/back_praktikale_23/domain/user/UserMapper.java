@@ -2,6 +2,7 @@ package ValiIT.back_praktikale_23.domain.user;
 
 import ValiIT.back_praktikale_23.business.login.LoginResponse;
 import ValiIT.back_praktikale_23.business.user.dto.NewUserRequest;
+import ValiIT.back_praktikale_23.business.user.dto.UserDto;
 import org.mapstruct.*;
 
 
@@ -14,6 +15,8 @@ public interface UserMapper {
 
     @Mapping(constant = "A",target = "status")
     User toUser(NewUserRequest newUserRequest);
+
+    UserDto toDto(User user);
 
 }
 
