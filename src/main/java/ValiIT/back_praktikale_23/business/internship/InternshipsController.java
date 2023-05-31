@@ -73,7 +73,7 @@ public class InternshipsController {
     public void deactivateInternship(@RequestParam Integer internshipId) {
         internshipsService.deactivateInternship(internshipId);
     }
-    @PatchMapping("/activate-internship")
+    @PutMapping("/activate-internship")
     @Operation(summary = "Võtab sisse internshipId ja muudab andmebaasis oleva praktikapakkumise aktiivseks")
     public void activateInternship(@RequestParam Integer internshipId) {
         internshipsService.activateInternship(internshipId);
