@@ -13,7 +13,6 @@ public class InternController {
 
     @PostMapping("/cv")
     @Operation(summary = "Lisab CV andmebaasi.")
-
     public void addCvToIntern(@RequestParam Integer userId, @RequestBody CvRequest cvRequest) {
         internService.addCvToIntern(userId, cvRequest);
 
@@ -21,10 +20,16 @@ public class InternController {
 
     @PostMapping("/coverletter")
     @Operation(summary = "Lisab coverletteri andmebaasi.")
-
     public void addCoverletterToIntern(@RequestParam Integer userId, @RequestBody CoverletterRequest coverletterRequest) {
         internService.addCoverletterToIntern(userId, coverletterRequest);
     }
 
+    @GetMapping
+    @Operation(summary = "Leiab andmebaasist interni fullnamei, ")
+
+
+
+
+    //todo GetUser PatchUser
 
 }
