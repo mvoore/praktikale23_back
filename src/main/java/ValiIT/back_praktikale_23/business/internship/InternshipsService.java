@@ -162,4 +162,11 @@ public class InternshipsService {
         return offer;
     }
 
+    public void deactivateInternship(Integer internshipId) {
+        internshipService.deactivateInternship(internshipId);
+    }
+
+    public void activateInternship(Integer internshipId) {
+        internshipService.activateInternship(internshipId);
+    }
 }
