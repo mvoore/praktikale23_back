@@ -1,6 +1,7 @@
 package ValiIT.back_praktikale_23.business.Intern;
 
 import ValiIT.back_praktikale_23.business.user.dto.UserDto;
+import ValiIT.back_praktikale_23.business.user.dto.UserEdit;
 import ValiIT.back_praktikale_23.domain.user.User;
 import ValiIT.back_praktikale_23.domain.user.UserMapper;
 import ValiIT.back_praktikale_23.domain.user.UserService;
@@ -52,5 +53,17 @@ public class InternService {
         User user = userService.getUserBy(userId);
         UserDto dto = userMapper.toDto(user);
         return dto;
+    }
+
+    public void updateInternInfo(Integer userId, UserEdit userEdit) {
+        User user = userService.getUserBy(userId);
+        String email = userEdit.getEmail();
+        String fullName = userEdit.getFullName();
+        user.setEmail(email);
+        user.setFullName(fullName);
+
+        userService.addUser(user);
+
+
     }
 }

@@ -45,4 +45,11 @@ public class User {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
