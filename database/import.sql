@@ -92,7 +92,7 @@ INSERT INTO public.company (id,user_id,name,phone_number,email) VALUES (DEFAULT,
 INSERT INTO public.company (id,user_id,name,phone_number,email) VALUES (DEFAULT,13,'Playtech ',6977900,'info@playtech.ee');
 
 
-INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude, status) VALUES (DEFAULT,1,2,3,'Keevise','Pakipoint Tallinn',13,11415,null,null, 'A');
+INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude, status) VALUES (DEFAULT,1,2,1,'Keevise','Pakipoint Tallinn',13,11415,null,null, 'A');
 INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude, status) VALUES (DEFAULT,1,2,3,'Rävala','Crew New Tallinna kontor',7,10143,null,null, 'A');
 INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude, status) VALUES (DEFAULT,1,2,9,'Lõõtsa','Playtech Tallinn',5,11415,null,null, 'A');
 INSERT INTO public.address (id,region_id,city_id,company_id,street,name,street_number,postal_code,longitude,latitude, status) VALUES (DEFAULT,10,3,9,'Vanemuise','Playtech Tartu',7,51001,null,null, 'A');
