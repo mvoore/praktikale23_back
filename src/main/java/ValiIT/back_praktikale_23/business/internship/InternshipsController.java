@@ -25,9 +25,7 @@ public class InternshipsController {
     public List<InternshipDto> getInternships(@RequestParam Integer sortValue, @RequestParam Integer regionId, @RequestParam Integer categoryId) {
         List<InternshipDto> internships = internshipsService.getInternships(sortValue, regionId, categoryId);
         return internships;
-
     }
-
 
     @PostMapping("/new-offer")
     @Operation(summary = "Uue praktika pakkumise lisamine.")

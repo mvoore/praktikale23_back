@@ -18,4 +18,8 @@ public class CompanyService {
     public void addCompany(Company company) {
         companyRepository.save(company);
     }
+
+    public Company getCompanyBy(Integer companyId) {
+       return companyRepository.findById(companyId).get();
+    }
 }
