@@ -1,9 +1,12 @@
 package ValiIT.back_praktikale_23.business.Intern;
 
+import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationDto;
 import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -27,10 +30,11 @@ public class InternController {
     }
 
     @PostMapping("/add-application")
-    @Operation(summary = "Salvestab applicationi andmebaasi uue kirjena")
-    public void addApplication(@RequestParam Integer userId,@RequestBody ApplicationRequest applicationRequest) {
-        internService.addApplication(userId,applicationRequest);
+    @Operation(summary = "Võtab sisse InternshipId ja salvestab applicationi andmebaasi uue kirjena")
+    public void addApplication(@RequestBody ApplicationRequest applicationRequest) {
+        internService.addApplication(applicationRequest);
     }
+
 
 
 }
