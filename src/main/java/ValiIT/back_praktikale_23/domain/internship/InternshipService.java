@@ -46,4 +46,6 @@ public class InternshipService {
         internship.setStatus(Status.ACTIVE.getLetter());
         internshipRepository.save(internship);
     }
+
+
 }
