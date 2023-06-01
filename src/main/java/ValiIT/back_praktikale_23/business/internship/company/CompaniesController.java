@@ -14,14 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class CompaniesController {
     @Resource
     private CompaniesService companiesService;
-    @Resource
-    private CompanyMapper companyMapper;
 
     @GetMapping
     @Operation(summary = "Leiab andmebaasist company info userId kaudu.")
     public CompanyDto getCompanyInfo(@RequestParam Integer userId) {
-        Company company = companiesService.getCompany(userId);
-        return companyMapper.toDto(company);
+        return companiesService.getCompany(userId);
     }
 
     @PostMapping

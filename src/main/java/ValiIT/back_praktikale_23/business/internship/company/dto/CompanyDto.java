@@ -15,7 +15,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class CompanyDto implements Serializable {
     private Integer companyId;
-    private Integer userId;
     private String companyName;
     private String phoneNumber;
     private String email;
