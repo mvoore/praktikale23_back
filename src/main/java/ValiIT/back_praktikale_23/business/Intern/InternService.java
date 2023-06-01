@@ -1,11 +1,12 @@
 package ValiIT.back_praktikale_23.business.Intern;
 
-import ValiIT.back_praktikale_23.domain.internship.application.Application;
+import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationDto;
 import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationRequest;
 import ValiIT.back_praktikale_23.business.user.dto.UserDto;
 import ValiIT.back_praktikale_23.business.user.dto.UserEdit;
 import ValiIT.back_praktikale_23.domain.internship.Internship;
 import ValiIT.back_praktikale_23.domain.internship.InternshipService;
+import ValiIT.back_praktikale_23.domain.internship.application.Application;
 import ValiIT.back_praktikale_23.domain.internship.application.ApplicationMapper;
 import ValiIT.back_praktikale_23.domain.internship.application.ApplicationService;
 import ValiIT.back_praktikale_23.domain.user.User;
@@ -19,6 +20,8 @@ import ValiIT.back_praktikale_23.domain.user.cv.Cv;
 import ValiIT.back_praktikale_23.domain.user.cv.CvMapper;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class InternService {
@@ -93,5 +96,9 @@ public class InternService {
     }
 
 
-
+    public List<ApplicationDto> getApplications(Integer userId) {
+        List<Application> applications = applicationService.findActiveApplicationsBy(userId);
+        List<ApplicationDto> applicationDtos = applicationMapper.toDtos(applications);
+        return applicationDtos;
+    }
 }
