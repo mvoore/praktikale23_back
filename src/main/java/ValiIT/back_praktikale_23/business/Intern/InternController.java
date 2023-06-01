@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -56,11 +57,10 @@ public class InternController {
     @Operation(summary = "otsib userId alusel konkreetsed praktika avaldused")
     public List<ApplicationDto> getApplications(@RequestParam Integer userId) {
         List<ApplicationDto> applications = internService.getApplications(userId);
+        if (applications.isEmpty()) {
+            return new ArrayList<>();
+        }
         return applications;
     }
-
-
-
-
-
 }
+
