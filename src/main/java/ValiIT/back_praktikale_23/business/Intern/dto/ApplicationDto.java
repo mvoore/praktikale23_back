@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * DTO for {@link Application}
@@ -18,5 +17,5 @@ public class ApplicationDto implements Serializable {
     private Integer applicationId;
     private Integer internshipId;
     private String internshipTitle;
-    private Integer userId;
+    private String internshipCompanyName;
 }

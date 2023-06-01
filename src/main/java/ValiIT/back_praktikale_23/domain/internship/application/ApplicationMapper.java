@@ -19,4 +19,13 @@ public interface ApplicationMapper {
     Application toEntity(ApplicationRequest applicationRequest);
 
 
+    @Mapping(source="id",target="applicationId")
+    @Mapping(source="internship.id",target="internshipId")
+    @Mapping(source="internship.title",target="internshipTitle")
+    @Mapping(source="internship.company.name",target="internshipCompanyName")
+    ApplicationDto toDto(Application application);
+
+
+    List<ApplicationDto> toDtos(List<Application> applications);
+
 }

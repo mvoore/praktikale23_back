@@ -1,10 +1,14 @@
 package ValiIT.back_praktikale_23.business.Intern;
 
+import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationDto;
+import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationRequest;
 import ValiIT.back_praktikale_23.business.user.dto.UserDto;
 import ValiIT.back_praktikale_23.business.user.dto.UserEdit;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -47,6 +51,15 @@ public class InternController {
     public void addApplication(@RequestBody ApplicationRequest applicationRequest) {
         internService.addApplication(applicationRequest);
     }
+
+    @GetMapping("/applications")
+    @Operation(summary = "otsib userId alusel konkreetsed praktika avaldused")
+    public List<ApplicationDto> getApplications(@RequestParam Integer userId) {
+        List<ApplicationDto> applications = internService.getApplications(userId);
+        return applications;
+    }
+
+
 
 
 
