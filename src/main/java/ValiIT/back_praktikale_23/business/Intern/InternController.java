@@ -1,5 +1,6 @@
 package ValiIT.back_praktikale_23.business.Intern;
 
+import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationRequest;
 import ValiIT.back_praktikale_23.business.user.dto.UserDto;
 import ValiIT.back_praktikale_23.business.user.dto.UserEdit;
 import io.swagger.v3.oas.annotations.Operation;
