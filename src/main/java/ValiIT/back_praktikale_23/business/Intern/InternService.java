@@ -1,4 +1,15 @@
 package ValiIT.back_praktikale_23.business.Intern;
+import ValiIT.back_praktikale_23.business.Intern.dto.ApplicationRequest;
+import ValiIT.back_praktikale_23.business.user.dto.UserDto;
+import ValiIT.back_praktikale_23.business.user.dto.UserEdit;
+import ValiIT.back_praktikale_23.domain.internship.Internship;
+import ValiIT.back_praktikale_23.domain.internship.InternshipService;
+import ValiIT.back_praktikale_23.domain.internship.application.Application;
+import ValiIT.back_praktikale_23.domain.internship.application.ApplicationMapper;
+import ValiIT.back_praktikale_23.domain.internship.application.ApplicationService;
+import ValiIT.back_praktikale_23.domain.user.User;
+import ValiIT.back_praktikale_23.domain.user.UserMapper;
+import ValiIT.back_praktikale_23.domain.user.UserService;
 import ValiIT.back_praktikale_23.domain.user.coverletter.Coverletter;
 import ValiIT.back_praktikale_23.domain.user.coverletter.CoverletterMapper;
 import ValiIT.back_praktikale_23.domain.user.coverletter.CoverletterService;
